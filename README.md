@@ -1,4 +1,11 @@
-# WhosRunning
+# Dead Directory
+
+## About
+
+An Angular web application used to display Grateful Dead Tour dates and their
+corresponding setlist. The backend for this application is mean to serve this
+application the required data.
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
 
