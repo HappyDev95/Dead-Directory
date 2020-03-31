@@ -1,0 +1,17 @@
+<div>
+
+  <div class="greeting-container">
+    <h1>
+      Welcome to the Grateful Dead show finder. I am a fan, and the purpose of this webpage is to assist navigation through the extensive collection of Grateful Dead shows. Keep on truckin!
+    </h1>
+
+    <h2>
+      Click on a year to see shows and setlists from that year.
+    </h2>
+  </div>
+
+  <ul class="tour-dates-list">
+    <li *ngFor="let year of yearsActiveArr" routerLink="/tourYear/{{year}}">{{year}}</li>
+  </ul>
+
+</div>

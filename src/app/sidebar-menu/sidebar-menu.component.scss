@@ -1,0 +1,35 @@
+$charcoalBlack: rgb(26, 26, 26);
+$boneWhite: rgb(217, 217, 217);
+$darkRed: rgb(102, 0, 0);
+
+.sidebar-menu {
+  height: 15%;
+  width: 8%;
+  top: 50%;
+  position: fixed;
+  z-index: 1;
+  padding: 0;
+  background-color: $charcoalBlack;
+
+  ul {
+    list-style-type: none;
+    display: inline;
+
+    li {
+      padding: 8px 8px 8px 8px;
+      font-size: 1em;
+      font-weight: bold;
+      color: $boneWhite;
+      border-style: solid;
+      border-color: $charcoalBlack;
+      background-color: $charcoalBlack;
+      transition: 0.3s;
+    }
+
+    li:hover {
+      color: $charcoalBlack;
+      background-color: $boneWhite;
+      border-color: $darkRed;
+    }
+  }
+}

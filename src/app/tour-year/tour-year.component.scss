@@ -1,0 +1,62 @@
+$charcoalBlack: rgb(26, 26, 26);
+$boneWhite: rgb(217, 217, 217);
+$darkRed: rgb(102, 0, 0);
+
+.tourInfo-container {
+  font-family: 'Poor Story', cursive;
+  font-size: 1.5em;
+  background-color: $charcoalBlack;
+  border-color: $boneWhite;
+  border-style: solid;
+  border-radius: 15px 15px 15px 15px;
+  margin: 1% 8% 0 8%;
+  color: $darkRed;
+}
+
+h4 {
+  font-family: 'Poor Story', cursive;
+  font-size: 3em;
+  text-align: center;
+  color: $boneWhite;
+}
+
+.tour-year-list {
+  list-style-type: none;
+  font-size: 2em;
+  font-weight: bold;
+  color: white;
+
+  li {
+    float: left;
+    border-color: $boneWhite;
+    border-style: solid;
+    background-color: $charcoalBlack;
+    border-radius: 20px 20px 20px 20px;
+    padding: 5% 5% 5% 5%;
+    margin:0.5em;
+
+    &:hover{
+      color: $charcoalBlack;
+      border-color: $charcoalBlack;
+      background: darken($boneWhite, 10%);
+    }
+  }
+}
+
+#goBackButton {
+  font-family: 'Poor Story', cursive;
+  font-size: 3.5em;
+  font-weight: bold;
+  background-color: $charcoalBlack;
+  border-color: $boneWhite;
+  border-style: solid;
+  border-radius: 15px 15px 15px 15px;
+  margin: 1% 8% 0 8%;
+  color: $darkRed;
+
+  &:hover{
+    color: $charcoalBlack;
+    border-color: $charcoalBlack;
+    background: darken($boneWhite, 10%);
+  }
+}

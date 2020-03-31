@@ -1,0 +1,61 @@
+$charcoalBlack: rgb(26, 26, 26);
+$boneWhite: rgb(217, 217, 217);
+$darkRed: rgb(102, 0, 0);
+
+.greeting-container {
+  font-family: 'Poor Story', cursive;
+  font-size: 1.5em;
+  background-color: $charcoalBlack;
+  border-color: $boneWhite;
+  border-style: solid;
+  border-radius: 15px 15px 15px 15px;
+  margin: 1% 8% 0 8%;
+}
+
+h1 {
+  text-align: center;
+  color: $boneWhite;
+}
+
+h2 {
+  color: $darkRed;
+}
+
+.content-container {
+  display: grid;
+  grid-column-gap: 5%;
+  grid-template-columns: auto auto;
+  padding: 0 10% 0 10%;
+}
+
+.selection-container {
+  padding: 5%;
+
+  .selection-content-container {
+    font-size: 2em;
+    position: absolute;
+  }
+}
+
+.tour-dates-list {
+  list-style-type: none;
+  font-size: 2em;
+  font-weight: bold;
+  color: white;
+
+  li {
+    float: left;
+    border-color: $boneWhite;
+    border-style: solid;
+    background-color: $charcoalBlack;
+    border-radius: 20px 20px 20px 20px;
+    padding: 5% 5% 5% 5%;
+    margin:0.5em;
+
+    &:hover{
+      color: $charcoalBlack;
+      border-color: $charcoalBlack;
+      background: darken($boneWhite, 10%);
+    }
+  }
+}
