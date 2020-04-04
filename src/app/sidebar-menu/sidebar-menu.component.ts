@@ -21,7 +21,11 @@ export class SidebarMenuComponent implements OnInit {
   }
 
   orderByVenue() {
-    // TODO: do this
+    this.tourService.orderByVenue();
+  }
+
+  orderByState() {
+    this.tourService.orderByState();
   }
 
 }

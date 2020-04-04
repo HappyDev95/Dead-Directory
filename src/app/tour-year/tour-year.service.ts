@@ -9,7 +9,7 @@ import{ Show } from './../dataModel/show';
 export class TourYearService {
 
   tourYear: string = null;
-  showArr: Show[] = [];
+  showArr: Show[] = [];   //array of show objects which hold a show's data
 
   constructor(private _http: HttpService) { }
 
@@ -60,8 +60,12 @@ export class TourYearService {
     this.showArr.push(show);
   }
 
+  getShowArray() {
+    return this.showArr;
+  }
+
   //Sorts dates ascending i.e Jan -> Dec
-   orderByYearAscending(){
+   orderByYearAscending() {
     //We turn our dates, which are stored as strings, to Date objects
     this.showArr.sort( (showA, showB) => {
        let dateA = new Date(showA.getEventDate());
@@ -77,7 +81,7 @@ export class TourYearService {
    }
 
    //Sort dates descending i.e. Dec -> Jan
-   orderByYearDescending(){
+   orderByYearDescending() {
      this.showArr.sort( (showA, showB) => {
        let dateA = new Date(showA.getEventDate());
        let dateB  = new Date(showB.getEventDate());
@@ -91,8 +95,32 @@ export class TourYearService {
      });
    }
 
-   getShowArray() {
-     return this.showArr;
+   //sorts shows by the venue name alphabetically
+   //(ex: Avenue, Bvenue, ... Zvenue)
+   orderByVenue() {
+     this.showArr.sort( (showA, showB) => {
+       if(showA.getVenueName() > showB.getVenueName()) {
+         return 1;
+       }
+       if(showA.getVenueName() < showB.getVenueName()) {
+         return -1;
+       }
+       return 0;
+     });
+   }
+
+   //sorts shows by the state/location name alphabetically
+   //(ex: Alaska, British Columbia, ..., Vermont)
+   orderByState() {
+     this.showArr.sort( (showA, showB) => {
+       if(showA.getCityLocation() > showB.getCityLocation()) {
+         return 1;
+       }
+       if(showA.getCityLocation() < showB.getCityLocation()) {
+         return -1;
+       }
+       return 0;
+     });
    }
 
 }
