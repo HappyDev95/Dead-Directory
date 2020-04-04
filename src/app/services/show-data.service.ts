@@ -6,7 +6,7 @@ import{ Show } from './../dataModel/show';
   providedIn: 'root'
 })
 
-export class TourYearService {
+export class ShowDataService {
 
   tourYear: string = null;
   showArr: Show[] = [];   //array of show objects which hold a show's data

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TourYearService } from './../tour-year/tour-year.service';
+import { ShowDataService } from './../services/show-data.service';
 
 @Component({
   selector: 'sidebar-menu',
@@ -8,24 +8,24 @@ import { TourYearService } from './../tour-year/tour-year.service';
 })
 export class SidebarMenuComponent implements OnInit {
 
-  constructor(private tourService: TourYearService) { }
+  constructor(private showService: ShowDataService) { }
 
   ngOnInit(): void { }
 
   orderByYearAscending() {
-    this.tourService.orderByYearAscending();
+    this.showService.orderByYearAscending();
   }
 
   orderByYearDescending() {
-    this.tourService.orderByYearDescending();
+    this.showService.orderByYearDescending();
   }
 
   orderByVenue() {
-    this.tourService.orderByVenue();
+    this.showService.orderByVenue();
   }
 
   orderByState() {
-    this.tourService.orderByState();
+    this.showService.orderByState();
   }
 
 }

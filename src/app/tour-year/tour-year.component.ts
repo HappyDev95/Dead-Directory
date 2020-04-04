@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { SidebarMenuComponent } from './../sidebar-menu/sidebar-menu.component';
-import { TourYearService } from './tour-year.service';
+import { ShowDataService } from './../services/show-data.service';
 import { Show } from './../dataModel/show';
 
 @Component({
   selector: 'tour-year',
   templateUrl: './tour-year.component.html',
   styleUrls: ['./tour-year.component.scss'],
-  //add TourYearService as a provider means it gets created
+  //add ShowDataService as a provider means it gets created
   //on ngOnInit and destroyed on ngOnDestroy
-  providers: [ TourYearService ],
+  providers: [ ShowDataService ],
 })
 
 export class TourYearComponent implements OnInit {
@@ -21,7 +21,7 @@ export class TourYearComponent implements OnInit {
   currentIndex: number = 0;
   isShowing: boolean = false;
 
-  constructor(private route: ActivatedRoute, private tourService: TourYearService) {}
+  constructor(private route: ActivatedRoute, private showService: ShowDataService) {}
 
   ngOnInit(): void {
     //get the 'year' attribute from the routers ParamMap
@@ -30,9 +30,9 @@ export class TourYearComponent implements OnInit {
     });
 
     //use our tour-year serivce to call our api via our http service
-    this.tourService.doGetTourYearRequest(this.tourYear);
+    this.showService.doGetTourYearRequest(this.tourYear);
     //set showArr = an array of Show Objects holding show data
-    this.showArr = this.tourService.getShowArray();
+    this.showArr = this.showService.getShowArray();
   }
 
   displaySetlist(index){
