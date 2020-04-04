@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TourYearComponent } from './tour-year/tour-year.component';
 import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
+import { TodayInGDHistComponent } from './today-in-gd-hist/today-in-gd-hist.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
     HomeComponent,
     TourYearComponent,
     SidebarMenuComponent,
+    TodayInGDHistComponent,
   ],
   imports: [
     BrowserModule,

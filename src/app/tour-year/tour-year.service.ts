@@ -15,7 +15,7 @@ export class TourYearService {
 
   //Gets the tour information for a given year.
   //The requested tour year is passed in via the router
-  doGetTourYearRequest(year){
+  doGetTourYearRequest(year) {
     var response = this._http.getTourData(year);
     response.subscribe(arrOfObjects => {
       for(let idx in arrOfObjects){
@@ -64,7 +64,7 @@ export class TourYearService {
     return this.showArr;
   }
 
-  //Sorts dates ascending i.e Jan -> Dec
+   //Sorts dates ascending i.e Jan -> Dec
    orderByYearAscending() {
     //We turn our dates, which are stored as strings, to Date objects
     this.showArr.sort( (showA, showB) => {
