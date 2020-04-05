@@ -1,1 +1,36 @@
-<p>today-in-gd-hist works!</p>
+<div *ngIf="!isShowing" class="show-container">
+  <h4>
+    {{this.getTodaysDate()}}
+  </h4>
+  <ul class="show-list">
+    <li *ngFor="let show of getShowArray(); let i = index"
+        (click)="displaySetlist(i)">
+      <br>
+      {{show.getVenueName()}}
+      <br>
+      {{show.getCityName()}}, {{show.getCityLocation()}}
+      <br>
+      {{show.getEventDate()}}
+      <br>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="isShowing" class="show-container">
+  <h4>
+    {{getShow(this.currentIndex).getVenueName()}}
+    <br>
+    {{getShow(this.currentIndex).getCityName()}}, {{getShow(this.currentIndex).getCityLocation()}}
+    <br>
+    {{getShow(this.currentIndex).getEventDate()}}
+  </h4>
+  <ul class="show-list">
+    <li *ngFor="let set of getShow(this.currentIndex).getSetListArray(); let i = index">
+      <h1>Set {{i+1}}</h1>
+      {{set}}
+    </li>
+  </ul>
+</div>
+
+<button *ngIf="isShowing" type="button" name="goBackButton"
+  id="goBackButton" (click)="returnToTourYear()">Go Back</button>

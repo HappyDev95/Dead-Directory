@@ -11,14 +11,24 @@ export class ShowDataService {
   tourYear: string = null;
   showArr: Show[] = [];   //array of show objects which hold a show's data
 
-  constructor(private _http: HttpService) { }
+  constructor(private httpService: HttpService) { }
 
   //Gets the tour information for a given year.
   //The requested tour year is passed in via the router
   doGetTourYearRequest(year) {
-    var response = this._http.getTourData(year);
+    var response = this.httpService.getTourData(year);
     response.subscribe(arrOfObjects => {
-      for(let idx in arrOfObjects){
+      for(let idx in arrOfObjects) {
+        this.setShowData(arrOfObjects[idx]);
+      }
+    });
+  }
+
+  //Gets the tour information for a given date
+  doGetShowsMatchingDate(date) {
+    var response = this.httpService.getShowsMatchingDate(date);
+    response.subscribe(arrOfObjects => {
+      for(let idx in arrOfObjects) {
         this.setShowData(arrOfObjects[idx]);
       }
     });

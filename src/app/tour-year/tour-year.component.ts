@@ -29,7 +29,7 @@ export class TourYearComponent implements OnInit {
       this.tourYear = params.get('year');
     });
 
-    //use our tour-year serivce to call our api via our http service
+    //use our show serivce to call our api via our http service
     this.showService.doGetTourYearRequest(this.tourYear);
     //set showArr = an array of Show Objects holding show data
     this.showArr = this.showService.getShowArray();
