@@ -14,10 +14,10 @@ import { Show } from './../dataModel/show';
 export class TodayInGDHistComponent implements OnInit {
 
   private date: Date = new Date();
-  private showArr: Show[] = new Show();
+  private showArr: Show[] = [];
   isShowing: boolean;
   currentIndex: number;
-  const dateOptions = { year: 'numeric', month: 'numeric', day: 'numeric',  weekday: 'long', };
+  readonly dateOptions: Object = { year: 'numeric', month: 'numeric', day: 'numeric',  weekday: 'long', };
 
 
   constructor(private showService: ShowDataService) {
