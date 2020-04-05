@@ -8,6 +8,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class HttpService {
 
   constructor(private http: HttpClient) { }
+  //inject HttpClient via the constructor
 
   /*
   * description: calls our express API to serve up tour data for the specified year
