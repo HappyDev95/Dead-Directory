@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpService } from './../http.service';
+import { HttpService } from './http.service';
 import{ Show } from './../dataModel/show';
 
 @Injectable({
@@ -11,6 +11,7 @@ export class ShowDataService {
   tourYear: string = null;
   showArr: Show[] = [];   //array of show objects which hold a show's data
 
+  //inject our HttpService via the constructor
   constructor(private httpService: HttpService) { }
 
   //Gets the tour information for a given year.

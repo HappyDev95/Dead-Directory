@@ -7,6 +7,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 export class HttpService {
 
+  //inject HttpClient via the constructor
   constructor(private http: HttpClient) { }
 
   /*

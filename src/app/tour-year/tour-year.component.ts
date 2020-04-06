@@ -21,6 +21,7 @@ export class TourYearComponent implements OnInit {
   currentIndex: number = 0;
   isShowing: boolean = false;
 
+  //injecting ActivatedRoute and ShowDataService via the constructor
   constructor(private route: ActivatedRoute, private showService: ShowDataService) {}
 
   ngOnInit(): void {
