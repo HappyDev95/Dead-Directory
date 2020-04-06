@@ -13,6 +13,7 @@ export class ShowDataService {
 
   //inject our HttpService via the constructor
   constructor(private httpService: HttpService) { }
+  //inject our HttpService via the constructor
 
   //Gets the tour information for a given year.
   //The requested tour year is passed in via the router

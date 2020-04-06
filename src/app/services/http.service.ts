@@ -9,6 +9,7 @@ export class HttpService {
 
   //inject HttpClient via the constructor
   constructor(private http: HttpClient) { }
+  //inject HttpClient via the constructor
 
   /*
   * description: calls our express API to serve up tour data for the specified year
