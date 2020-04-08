@@ -2,6 +2,7 @@
 
 <div *ngIf="!isShowing" class="tourInfo-container">
   <h4>{{getTourYear()}}</h4>
+  <h2>Click on a show to see the setlist and view soundboards from archive.org </h2>
   <ul class="tour-year-list">
     <li *ngFor="let show of getShowArray(); let i = index"
       (click)="displaySetlist(i)">
