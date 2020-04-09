@@ -28,7 +28,7 @@ export class TodayInGDHistComponent implements OnInit {
   ngOnInit(): void {
     this.getTodaysDate();
     //use our show serivce to call our api via our http service
-    this.showService.doGetShowsMatchingDate(this.date);
+    this.showService.doGetShowsMatchingDateRequest(this.date);
     this.showArr = this.showService.getShowArray();
   }
 

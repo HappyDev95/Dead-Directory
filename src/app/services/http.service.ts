@@ -36,4 +36,15 @@ export class HttpService {
     return this.http.get('http://localhost:8000/TIGDH/', {params});
   }
 
+  /*
+  * description: calls our express API to return an Object containing the URLs
+  *              for the soundboards/tapes for a given date, if any exist
+  */
+  getSoundboardData(date) {
+    let params = new HttpParams();
+    params = params.set('dateParam', date);
+
+    return this.http.get('http://localhost:8000/getSoundboardData/', {params});
+  }
+
 }

@@ -24,21 +24,27 @@ export class TourYearComponent implements OnInit {
   //injecting ActivatedRoute and ShowDataService via the constructor
   constructor(private route: ActivatedRoute, private showService: ShowDataService) {}
 
+  /*
+  * description:  get the 'year' attribute from the routers ParamMap
+  *               call showService to get a years worth of tour data
+  *               call showService to set showArr = an array of Show Objects holding show data
+  */
   ngOnInit(): void {
     //get the 'year' attribute from the routers ParamMap
     this.route.paramMap.subscribe((params : ParamMap) => {
       this.tourYear = params.get('year');
     });
 
-    //use our show serivce to call our api via our http service
     this.showService.doGetTourYearRequest(this.tourYear);
-    //set showArr = an array of Show Objects holding show data
     this.showArr = this.showService.getShowArray();
   }
 
-  displaySetlist(index){
+  displaySetlist(index) {
     this.isShowing = true;    //when true, display the set list
     this.currentIndex = index;
+    
+    var dateParam = new Date(this.showArr[index].getEventDate());
+    this.showService.doGetSoundboardDataRequest(dateParam);
   }
 
   //sets isShowing to false which will display the list of shows

@@ -9,14 +9,15 @@ import{ Show } from './../dataModel/show';
 export class ShowDataService {
 
   tourYear: string = null;
-  showArr: Show[] = [];   //array of show objects which hold a show's data
+  showArr: Show[] = [];          //array of show objects which hold a show's data
+  soundboardArr: Object[] = [];  //array of
 
   //inject our HttpService via the constructor
   constructor(private httpService: HttpService) { }
-  //inject our HttpService via the constructor
 
   //Gets the tour information for a given year.
   //The requested tour year is passed in via the router
+  //use httpService to perform a request to API on our behalf
   doGetTourYearRequest(year) {
     var response = this.httpService.getTourData(year);
     response.subscribe(arrOfObjects => {
@@ -27,12 +28,24 @@ export class ShowDataService {
   }
 
   //Gets the tour information for a given date
-  doGetShowsMatchingDate(date) {
+  //use httpService to perform a request to API on our behalf
+  doGetShowsMatchingDateRequest(date) {
     var response = this.httpService.getShowsMatchingDate(date);
     response.subscribe(arrOfObjects => {
       for(let idx in arrOfObjects) {
         this.setShowData(arrOfObjects[idx]);
       }
+    });
+  }
+
+  //Gets the soundboard/audience tapes for a given date
+  //use httpService to perform a request to API on our behalf
+  doGetSoundboardDataRequest(date) {
+    console.log('in doGetSoundboardDataRequest, date = ' + date);
+    var response = this.httpService.getSoundboardData(date);
+    response.subscribe(arrOfObjects => {
+      console.log(arrOfObjects);
+      // TODO: Handle the data coming back
     });
   }
 
