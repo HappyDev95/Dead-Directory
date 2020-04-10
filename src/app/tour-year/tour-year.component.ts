@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { SidebarMenuComponent } from './../sidebar-menu/sidebar-menu.component';
 import { ShowDataService } from './../services/show-data.service';
 import { Show } from './../dataModel/show';
+import { AudioRecording } from './../dataModel/audio-recording';
 
 @Component({
   selector: 'tour-year',
@@ -18,6 +19,7 @@ export class TourYearComponent implements OnInit {
 
   private tourYear: string = null;
   private showArr: Show[] = [];
+  private audioRecArray: AudioRecording[] = [];
   currentIndex: number = 0;
   isShowing: boolean = false;
 
@@ -40,11 +42,13 @@ export class TourYearComponent implements OnInit {
   }
 
   displaySetlist(index) {
+    console.log('in display setlist');
     this.isShowing = true;    //when true, display the set list
     this.currentIndex = index;
-    
+
     var dateParam = new Date(this.showArr[index].getEventDate());
     this.showService.doGetSoundboardDataRequest(dateParam);
+    this.audioRecArray = this.showService.getAudioRecordingArray();
   }
 
   //sets isShowing to false which will display the list of shows
@@ -67,6 +71,12 @@ export class TourYearComponent implements OnInit {
 
   getShow(index) {
     return this.showArr[index];
+  }
+
+  getAudioRecordingArray() {
+    console.log('in getAudioRecordingArray');
+    console.log('arr size =' + this.audioRecArray.length);
+    return this.audioRecArray;
   }
 
 }

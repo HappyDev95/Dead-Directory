@@ -4,8 +4,8 @@
   <h4>{{getTourYear()}}</h4>
   <h2>Click on a show to see the setlist and view soundboards from archive.org </h2>
   <ul class="tour-year-list">
-    <li *ngFor="let show of getShowArray(); let i = index"
-      (click)="displaySetlist(i)">
+    <li *ngFor="let show of this.getShowArray(); let i = index"
+      (click)="this.displaySetlist(i)">
       <br>
       {{show.getVenueName()}}
       <br>
@@ -26,11 +26,25 @@
     {{getShow(this.currentIndex).getEventDate()}}
   </h4>
   <ul class="tour-year-list">
-    <li *ngFor="let set of getShow(this.currentIndex).getSetListArray(); let i = index">
+    <li *ngFor="let set of this.getShow(this.currentIndex).getSetListArray(); let i = index">
       <h1>Set {{i+1}}</h1>
       {{set}}
     </li>
   </ul>
+
+  <ul class="tour-year-list">
+    <li *ngFor="let sbdObj of this.getAudioRecordingArray(); let i = index">
+      <h1>Tapings Found for this Show</h1>
+      {{sbdObj.getUrl()}}
+      <br>
+      {{sbdObj.getDownloads()}}
+      <br>
+      {{sbdObj.getAverageRating()}}
+      <br>
+      {{sbdObj.getNumberReviews()}}
+    </li>
+  </ul>
+
 </div>
 
 <button *ngIf="isShowing" type="button" name="goBackButton"

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
 import{ Show } from './../dataModel/show';
+import { AudioRecording } from './../dataModel/audio-recording';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,8 @@ import{ Show } from './../dataModel/show';
 export class ShowDataService {
 
   tourYear: string = null;
-  showArr: Show[] = [];          //array of show objects which hold a show's data
-  soundboardArr: Object[] = [];  //array of
+  private showArr: Show[] = [];                //array of show objects which hold a show's data
+  private audioRecordingArray: Object[] = [];  //array of soundboards/audience tapings
 
   //inject our HttpService via the constructor
   constructor(private httpService: HttpService) { }
@@ -45,14 +46,41 @@ export class ShowDataService {
     var response = this.httpService.getSoundboardData(date);
     response.subscribe(arrOfObjects => {
       console.log(arrOfObjects);
-      // TODO: Handle the data coming back
+      for(var idx in arrOfObjects) {
+        this.setAudioRecordings(arrOfObjects[idx]);
+      }
     });
+  }
+
+  setAudioRecordings(audioData) {
+    var audioRec = new AudioRecording();
+    for(let key in audioData) {
+      switch(key) {
+        case 'avg_rating':
+          audioRec.setAverageRating(audioData[key]);
+          break;
+        case 'downloads':
+          audioRec.setDownloads(audioData[key]);
+          break;
+        case 'identifier':
+          audioRec.setIdentifier(audioData[key]);
+          break;
+        case 'num_reviews':
+          audioRec.setNumberReviews(audioData[key]);
+          break;
+      }
+    }
+    this.audioRecordingArray.push(audioRec);
+  }
+
+  getAudioRecordingArray(){
+    return this.audioRecordingArray;
   }
 
   setShowData(showData) {
     var show = new Show();
     for(let key in showData){
-      switch(key){
+      switch(key) {
         case 'eventDate':
           show.setEventDate(showData[key]);
           break;
