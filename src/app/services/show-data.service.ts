@@ -11,7 +11,7 @@ export class ShowDataService {
 
   tourYear: string = null;
   private showArr: Show[] = [];                //array of show objects which hold a show's data
-  private audioRecordingArray: Object[] = [];  //array of soundboards/audience tapings
+  private audioRecordingArray: AudioRecording[] = [];  //array of soundboards/audience tapings
 
   //inject our HttpService via the constructor
   constructor(private httpService: HttpService) { }
