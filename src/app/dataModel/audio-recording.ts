@@ -10,7 +10,6 @@ export class AudioRecording {
   constructor() { }
 
   public getUrl() {
-    console.log(`${AudioRecording.ARCHIVE_ORG_LOOKUP_URL}${this.identifier}`);
     return `${AudioRecording.ARCHIVE_ORG_LOOKUP_URL}${this.identifier}`;
   }
 

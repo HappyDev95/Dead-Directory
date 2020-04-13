@@ -1,3 +1,5 @@
+import { DatePipe } from '@angular/common';
+
 export class Show {
 
   private eventDate: string;
@@ -6,10 +8,14 @@ export class Show {
   private cityLocation: string;
   private setList: any[] = [];
 
-  constructor(){ }
+  constructor() {}
 
   public getEventDate() {
     return this.eventDate;
+  }
+
+  public getEventDateYYYYMMDD() {
+    return new Date(this.eventDate).toISOString().slice(0,10);
   }
 
   public getVenueName() {

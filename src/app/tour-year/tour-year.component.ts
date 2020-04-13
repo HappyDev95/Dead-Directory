@@ -4,14 +4,13 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { SidebarMenuComponent } from './../sidebar-menu/sidebar-menu.component';
 import { ShowDataService } from './../services/show-data.service';
 import { Show } from './../dataModel/show';
-import { AudioRecording } from './../dataModel/audio-recording';
 
 @Component({
   selector: 'tour-year',
   templateUrl: './tour-year.component.html',
   styleUrls: ['./tour-year.component.scss'],
   //add ShowDataService as a provider means it gets created
-  //on ngOnInit and destroyed on ngOnDestroy
+  //on TourYearComponent ngOnInit and destroyed on TourYearComponent ngOnDestroy
   providers: [ ShowDataService ],
 })
 
@@ -19,8 +18,6 @@ export class TourYearComponent implements OnInit {
 
   private tourYear: string = null;
   private showArr: Show[] = [];
-  private audioRecArray: AudioRecording[] = [];
-  currentIndex: number = 0;
   isShowing: boolean = false;
 
   //injecting ActivatedRoute and ShowDataService via the constructor
@@ -28,8 +25,8 @@ export class TourYearComponent implements OnInit {
 
   /*
   * description:  get the 'year' attribute from the routers ParamMap
-  *               call showService to get a years worth of tour data
-  *               call showService to set showArr = an array of Show Objects holding show data
+  *               use showService to get a years worth of tour data
+  *               use showService to set showArr = an array of Show Objects holding show data
   */
   ngOnInit(): void {
     //get the 'year' attribute from the routers ParamMap
@@ -41,28 +38,24 @@ export class TourYearComponent implements OnInit {
     this.showArr = this.showService.getShowArray();
   }
 
-  displaySetlist(index) {
-    console.log('in display setlist');
-    this.isShowing = true;    //when true, display the set list
-    this.currentIndex = index;
-
-    var dateParam = new Date(this.showArr[index].getEventDate());
-    this.showService.doGetSoundboardDataRequest(dateParam);
-    this.audioRecArray = this.showService.getAudioRecordingArray();
+  /*
+  * description: when a route is activated i.e. we navigate to a child, set a flag
+  *              to indicate this. Utilizes router-outlet's (activate) event binding
+  */
+  onActivate(){
+    this.isShowing = true;
   }
 
-  //sets isShowing to false which will display the list of shows
-  //for a given tour year
-  returnToTourYear() {
+  /*
+  * description: when a route is activated i.e. we navigate to a child, set a flag
+  *              to indicate this. Utilizes router-outlet's (deactiviate) event binding
+  */
+  onDeactivate() {
     this.isShowing = false;
   }
 
   getTourYear() {
     return this.tourYear;
-  }
-
-  getCurrentIndex() {
-    return this.currentIndex;
   }
 
   getShowArray() {
@@ -71,12 +64,6 @@ export class TourYearComponent implements OnInit {
 
   getShow(index) {
     return this.showArr[index];
-  }
-
-  getAudioRecordingArray() {
-    console.log('in getAudioRecordingArray');
-    console.log('arr size =' + this.audioRecArray.length);
-    return this.audioRecArray;
   }
 
 }

@@ -1,0 +1,91 @@
+$charcoalBlack: rgb(26, 26, 26);
+$boneWhite: rgb(217, 217, 217);
+$darkRed: rgb(102, 0, 0);
+
+.show-container {
+  font-family: 'Poor Story', cursive;
+  font-size: 1.5em;
+  background-color: $charcoalBlack;
+  border-color: $boneWhite;
+  border-style: solid;
+  border-radius: 15px 15px 15px 15px;
+  margin: 1% 8% 0 8%;
+  color: $darkRed;
+  overflow: hidden;
+}
+
+.poo {
+  text-align: center;
+}
+
+.show-details-list {
+  font-family: 'Poor Story', cursive;
+  list-style-type: none;
+  font-size: 2em;
+  font-weight: bold;
+  color: white;
+
+  li {
+    float: left;
+    border-color: $boneWhite;
+    border-style: solid;
+    background-color: $charcoalBlack;
+    border-radius: 20px 20px 20px 20px;
+    padding: 5% 5% 5% 5%;
+    margin:0.5em;
+    box-shadow: 0 8px 14px 2px #000000;
+  }
+}
+
+.audience-recordings-container {
+  font-family: 'Poor Story', cursive;
+  font-size: 1.5em;
+  background-color: $charcoalBlack;
+  border-color: $boneWhite;
+  border-style: solid;
+  border-radius: 15px 15px 15px 15px;
+  margin: 1% 8% 0 8%;
+  color: $darkRed;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.audio-tapings-list {
+  list-style-type: none;
+  font-size: 2em;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+
+  li {
+    float: left;
+    border-color: $boneWhite;
+    border-style: solid;
+    background-color: $charcoalBlack;
+    border-radius: 20px 20px 20px 20px;
+    padding: 1% 1% 1% 1%;
+    margin:0.5em;
+    box-shadow: 0 8px 14px 2px #000000;
+  }
+}
+
+h1 {
+  font-family: 'Poor Story', cursive;
+  font-size: 3em;
+  text-align: center;
+  color: $boneWhite;
+}
+
+h2 {
+  font-family: 'Poor Story', cursive;
+  font-size: 2em;
+  text-align: center;
+  color: $boneWhite;
+}
+
+h3 {
+  font-family: 'Poor Story', cursive;
+  font-size: 2em;
+  text-align: center;
+  color: $darkRed;
+}

@@ -6,22 +6,20 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { TourYearComponent } from './tour-year/tour-year.component';
-import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
 import { TodayInGDHistComponent } from './today-in-gd-hist/today-in-gd-hist.component';
+import { TourYearModule } from './tour-year/tour-year.module'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    TourYearComponent,
-    SidebarMenuComponent,
     TodayInGDHistComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
+    TourYearModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

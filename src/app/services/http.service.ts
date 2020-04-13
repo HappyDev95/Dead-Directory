@@ -9,7 +9,6 @@ export class HttpService {
 
   //inject HttpClient via the constructor
   constructor(private http: HttpClient) { }
-  //inject HttpClient via the constructor
 
   /*
   * description: calls our express API to serve up tour data for the specified year
@@ -26,21 +25,22 @@ export class HttpService {
   }
 
   /*
-  * description: calls our express API to serve up all the shows that match the today's date
-  * returns: array of show objects who's eventDate === today
+  * description: calls our express API to serve up all the shows that match the date
+  * returns: Array of show objects who's eventDate === today
   */
   getShowsMatchingDate(date) {
     let params = new HttpParams();
     params = params.set('dateParam', date);
-
-    return this.http.get('http://localhost:8000/TIGDH/', {params});
+    
+    return this.http.get('http://localhost:8000/getShowsMatchingDate/', {params});
   }
 
   /*
   * description: calls our express API to return an Object containing the URLs
   *              for the soundboards/tapes for a given date, if any exist
+  * returns: Array of Objects holding information provided by the Archive.org API
   */
-  getSoundboardData(date) {
+getSoundboardData(date) {
     let params = new HttpParams();
     params = params.set('dateParam', date);
 

@@ -3,6 +3,8 @@ import { HttpService } from './http.service';
 import{ Show } from './../dataModel/show';
 import { AudioRecording } from './../dataModel/audio-recording';
 
+import { OnInit } from '@angular/core';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,8 +12,8 @@ import { AudioRecording } from './../dataModel/audio-recording';
 export class ShowDataService {
 
   tourYear: string = null;
-  private showArr: Show[] = [];                //array of show objects which hold a show's data
-  private audioRecordingArray: AudioRecording[] = [];  //array of soundboards/audience tapings
+  private showArr: Show[] = [];                        //Array of show objects which hold a show's data
+  private audioRecordingArray: AudioRecording[] = [];  //Array of soundboards/audience tapings
 
   //inject our HttpService via the constructor
   constructor(private httpService: HttpService) { }
@@ -42,16 +44,21 @@ export class ShowDataService {
   //Gets the soundboard/audience tapes for a given date
   //use httpService to perform a request to API on our behalf
   doGetSoundboardDataRequest(date) {
-    console.log('in doGetSoundboardDataRequest, date = ' + date);
     var response = this.httpService.getSoundboardData(date);
-    response.subscribe(arrOfObjects => {
-      console.log(arrOfObjects);
-      for(var idx in arrOfObjects) {
-        this.setAudioRecordings(arrOfObjects[idx]);
-      }
-    });
+
+     response.subscribe(arrOfObjects => {
+       for(var idx in arrOfObjects) {
+         this.setAudioRecordings(arrOfObjects[idx]);
+       }
+     });
   }
 
+  /*
+  * description: Sets the attributes for an AudioRecording object. Once all the
+  *              attributes are set on that object, add the AudioRecording object
+  *              to audioRecordingArray, an array which holds all the AudioRecordings
+  *              for a given show.
+  */
   setAudioRecordings(audioData) {
     var audioRec = new AudioRecording();
     for(let key in audioData) {
@@ -73,10 +80,15 @@ export class ShowDataService {
     this.audioRecordingArray.push(audioRec);
   }
 
-  getAudioRecordingArray(){
+  getAudioRecordingArray() {
     return this.audioRecordingArray;
   }
 
+  /*
+  * description: Sets the attributes for a Show object. Once all the attributes
+  *              are set on that object add the Show object to the setOfShows Array,
+  *              an array which holds Show objects.
+  */
   setShowData(showData) {
     var show = new Show();
     for(let key in showData){
@@ -115,6 +127,28 @@ export class ShowDataService {
 
   getShowArray() {
     return this.showArr;
+  }
+
+  /*
+  * params: date
+  * description: use the date parameter passed in to check against a Show objects
+  *              event date variable. If Show.eventDate equals the date paramter passed in
+  *              then return the Show object that we matched with.
+  */
+  getShowMatchingDate(date) {
+    if(this.showArr.length < 1) {
+      return null;
+    }
+
+    var showToRet = null;
+
+    //// TODO: fix this to break out of the forloop... cant use forEach and break
+    this.showArr.forEach(element => {
+      if(element.getEventDateYYYYMMDD() === date) {
+        showToRet = element;
+      }
+    });
+    return showToRet;
   }
 
    //Sorts dates ascending i.e Jan -> Dec

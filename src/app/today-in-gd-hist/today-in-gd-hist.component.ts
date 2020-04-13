@@ -25,6 +25,10 @@ export class TodayInGDHistComponent implements OnInit {
     this.isShowing = false;
   }
 
+  /*
+  * description:  use showService to get an Array of Show Objects matching date
+  *               use showService to set showArr = an array of Show Objects holding show data
+  */
   ngOnInit(): void {
     this.getTodaysDate();
     //use our show serivce to call our api via our http service

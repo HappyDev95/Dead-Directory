@@ -1,0 +1,35 @@
+<div class="show-container">
+  <h1>
+    {{getShow().getVenueName()}}
+    <br>
+    {{getShow().getCityName()}}, {{getShow().getCityLocation()}}
+    <br>
+    {{getShow().getEventDate()}}
+  </h1>
+</div>
+
+<div class="poo">
+  <ul class="show-details-list">
+    <li *ngFor="let set of this.getShow().getSetListArray(); let i = index">
+      <h2>Set {{i+1}}</h2>
+      {{set}}
+    </li>
+  </ul>
+</div>
+
+<div class="audience-recordings-container">
+  <h1>Show Tapings both audience and soundboards</h1>
+  <h3>Information provided by Archive.org</h3>
+</div>
+
+<ul class="audio-tapings-list">
+  <li *ngFor="let sbdObj of this.getAudioRecArr()">
+    URL: <a href="{{sbdObj.getUrl()}}" target="_blank">{{sbdObj.getUrl()}}</a>
+    <br>
+    Number Of Downloads: {{sbdObj.getDownloads()}}
+    <br>
+    Average Rating of Tape: {{sbdObj.getAverageRating()}}
+    <br>
+    Number of Tape Reviews: {{sbdObj.getNumberReviews()}}
+  </li>
+</ul>
