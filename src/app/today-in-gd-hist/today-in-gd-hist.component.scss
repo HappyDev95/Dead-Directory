@@ -13,7 +13,7 @@ $darkRed: rgb(102, 0, 0);
   color: $darkRed;
 }
 
-h4 {
+h1 {
   font-family: 'Poor Story', cursive;
   font-size: 3em;
   text-align: center;
@@ -40,23 +40,5 @@ h4 {
       border-color: $charcoalBlack;
       background: darken($boneWhite, 10%);
     }
-  }
-}
-
-#goBackButton {
-  font-family: 'Poor Story', cursive;
-  font-size: 3.5em;
-  font-weight: bold;
-  background-color: $charcoalBlack;
-  border-color: $boneWhite;
-  border-style: solid;
-  border-radius: 15px 15px 15px 15px;
-  margin: 1% 8% 0 8%;
-  color: $darkRed;
-
-  &:hover{
-    color: $charcoalBlack;
-    border-color: $charcoalBlack;
-    background: darken($boneWhite, 10%);
   }
 }

@@ -30,7 +30,6 @@ export class ShowComponent implements OnInit, OnDestroy {
     this.route.paramMap.subscribe((params : ParamMap) => {
       this.eventDate = params.get('eventDate');
     });
-    console.log('ShowComponent init');
 
     this.show = this.showService.getShowMatchingDate(this.eventDate);
     this.showService.doGetSoundboardDataRequest(this.eventDate);
