@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { ShowDataService } from './../../services/show-data.service';
@@ -10,7 +10,7 @@ import { AudioRecording } from './../../dataModel/audio-recording';
   templateUrl: './show.component.html',
   styleUrls: ['./show.component.scss']
 })
-export class ShowComponent implements OnInit {
+export class ShowComponent implements OnInit, OnDestroy {
 
   private show: Show = null;
   private eventDate: string = null;
@@ -30,10 +30,20 @@ export class ShowComponent implements OnInit {
     this.route.paramMap.subscribe((params : ParamMap) => {
       this.eventDate = params.get('eventDate');
     });
+    console.log('ShowComponent init');
 
     this.show = this.showService.getShowMatchingDate(this.eventDate);
     this.showService.doGetSoundboardDataRequest(this.eventDate);
     this.audioRecArray = this.showService.getAudioRecordingArray();
+  }
+
+  /*
+  * description: use showService to clear it's array of show taping for a show.
+  *              we must do this because the array persists for the lifecycle of
+  *              the parent component.
+  */
+  ngOnDestroy(): void {
+    this.showService.clearAudioRecordingArray();
   }
 
   getShow() {

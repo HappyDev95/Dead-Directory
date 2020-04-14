@@ -85,6 +85,15 @@ export class ShowDataService {
   }
 
   /*
+  * description: used to clear the Array's contents. Note that doing Array.length = 0
+  *              will update all references to that array to be length 0. If we did
+  *              audioRecordingArray = [] then all references to the array would not be effected.
+  */
+  clearAudioRecordingArray() {
+    return this.audioRecordingArray.length = 0;
+  }
+
+  /*
   * description: Sets the attributes for a Show object. Once all the attributes
   *              are set on that object add the Show object to the setOfShows Array,
   *              an array which holds Show objects.
@@ -142,7 +151,7 @@ export class ShowDataService {
 
     var showToRet = null;
 
-    //// TODO: fix this to break out of the forloop... cant use forEach and break
+    //// TODO: fix this to break out of the forloop for performance... cant use forEach and break.
     this.showArr.forEach(element => {
       if(element.getEventDateYYYYMMDD() === date) {
         showToRet = element;
