@@ -14,4 +14,4 @@
   </ul>
 </div>
 
-<router-outlet (activate)="onActivate()" (deactivate)="onDeactivate()"></router-outlet>
+<router-outlet *ngIf="isOkayToRoute" (activate)="onActivate()" (deactivate)="onDeactivate()"></router-outlet>

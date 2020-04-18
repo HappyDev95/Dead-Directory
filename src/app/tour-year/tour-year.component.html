@@ -4,7 +4,7 @@
   <h4>{{getTourYear()}}</h4>
   <h2>Click on a show to see the setlist and view soundboards from archive.org </h2>
   <ul class="tour-year-list">
-    <li *ngFor="let show of getShowArray(); let i = index" routerLink="{{show.getEventDateYYYYMMDD()}}">
+    <li *ngFor="let show of getShowArray()" routerLink="{{show.getEventDateYYYYMMDD()}}">
       <br>
       {{show.getVenueName()}}
       <br>
@@ -17,4 +17,4 @@
 </div>
 
 <!-- router-outlet here is used to display the routes relative to the tour-year component, not the app component -->
-<router-outlet (activate)="onActivate()" (deactivate)="onDeactivate()"></router-outlet>
+<router-outlet *ngIf="isOkayToRoute" (activate)="onActivate()" (deactivate)="onDeactivate()"></router-outlet>

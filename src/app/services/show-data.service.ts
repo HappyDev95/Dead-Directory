@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
+import { OnInit } from '@angular/core';
+
 import { HttpService } from './http.service';
 import{ Show } from './../dataModel/show';
 import { AudioRecording } from './../dataModel/audio-recording';
-
-import { OnInit } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -18,39 +18,40 @@ export class ShowDataService {
   //inject our HttpService via the constructor
   constructor(private httpService: HttpService) { }
 
-  //Gets the tour information for a given year.
-  //The requested tour year is passed in via the router
-  //use httpService to perform a request to API on our behalf
-  doGetTourYearRequest(year) {
-    var response = this.httpService.getTourData(year);
-    response.subscribe(arrOfObjects => {
-      for(let idx in arrOfObjects) {
-        this.setShowData(arrOfObjects[idx]);
+  /*
+  * description: Asynchronously gets the tour information for a given year and sets showArr. The requested
+  *              tour year is passed in via the router use httpService to perform a request to API on our behalf
+  */
+  async doGetTourYearRequest(year) {
+      var response = await this.httpService.getTourData(year).then( async data => {
+        for(var test in data) {
+          await this.setShowData(data[test]);
+        }
+      });
+  }
+
+  /*
+  * description: Asynchronously gets the tour information for a given date and sets showArr.
+  *              Use httpService to perform a request to API on our behalf
+  */
+  async doGetShowsMatchingDateRequest(date) {
+    var response = await this.httpService.getShowsMatchingDate(date).then(async data => {
+      for(var test in data) {
+        await this.setShowData(data[test]);
       }
     });
   }
 
-  //Gets the tour information for a given date
-  //use httpService to perform a request to API on our behalf
-  doGetShowsMatchingDateRequest(date) {
-    var response = this.httpService.getShowsMatchingDate(date);
-    response.subscribe(arrOfObjects => {
-      for(let idx in arrOfObjects) {
-        this.setShowData(arrOfObjects[idx]);
-      }
-    });
-  }
-
-  //Gets the soundboard/audience tapes for a given date
-  //use httpService to perform a request to API on our behalf
+  /*
+  * description: Asynchronously gets the soundboard/audience tapes for a given date and sets AudioRecordings Array.
+  *              Use httpService to perform a request to API on our behalf
+  */
   doGetSoundboardDataRequest(date) {
-    var response = this.httpService.getSoundboardData(date);
-
-     response.subscribe(arrOfObjects => {
-       for(var idx in arrOfObjects) {
-         this.setAudioRecordings(arrOfObjects[idx]);
-       }
-     });
+    var response = this.httpService.getSoundboardData(date).then(async data => {
+      for(var test in data) {
+        await this.setAudioRecordings(data[test]);
+      }
+    });
   }
 
   /*

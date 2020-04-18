@@ -1,16 +1,16 @@
 <div class="show-container">
   <h1>
-    {{getShow().getVenueName()}}
+    {{show.getVenueName()}}
     <br>
-    {{getShow().getCityName()}}, {{getShow().getCityLocation()}}
+    {{show.getCityName()}}, {{show.getCityLocation()}}
     <br>
-    {{getShow().getEventDate()}}
+    {{show.getEventDate()}}
   </h1>
 </div>
 
 <div class="poo">
   <ul class="show-details-list">
-    <li *ngFor="let set of this.getShow().getSetListArray(); let i = index">
+    <li *ngFor="let set of this.show.getSetListArray(); let i = index">
       <h2>Set {{i+1}}</h2>
       {{set}}
     </li>

@@ -18,6 +18,8 @@ export class TourYearComponent implements OnInit {
 
   private tourYear: string = null;
   private showArr: Show[] = [];
+
+  isOkayToRoute: boolean = false;
   isShowing: boolean = false;
 
   //injecting ActivatedRoute and ShowDataService via the constructor
@@ -28,21 +30,27 @@ export class TourYearComponent implements OnInit {
   *               use showService to get a years worth of tour data
   *               use showService to set showArr = an array of Show Objects holding show data
   */
-  ngOnInit(): void {
+  async ngOnInit() {
     //get the 'year' attribute from the routers ParamMap
     this.route.paramMap.subscribe((params : ParamMap) => {
       this.tourYear = params.get('year');
     });
 
-    this.showService.doGetTourYearRequest(this.tourYear);
-    this.showArr = this.showService.getShowArray();
+    await this.showService.doGetTourYearRequest(this.tourYear);
+    this.showArr = await this.showService.getShowArray();
+
+    // TODO: do this better... I'm not sure how yet, but look into RouteGuards, or preloading the service
+    //right now we set this flag after the service is guaranteed to have the data which will then
+    //allow our router-outlet to navigate us to the child route when we know the data is set. Without guaranteeing
+    //the serivce has been called from the parent route compoenent to init data errors could occur in the child compnent... so, do this better.
+    this.isOkayToRoute = true;
   }
 
   /*
   * description: when a route is activated i.e. we navigate to a child, set a flag
   *              to indicate this. Utilizes router-outlet's (activate) event binding
   */
-  onActivate(){
+  onActivate() {
     this.isShowing = true;
   }
 

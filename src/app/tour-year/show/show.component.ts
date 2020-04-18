@@ -12,7 +12,7 @@ import { AudioRecording } from './../../dataModel/audio-recording';
 })
 export class ShowComponent implements OnInit, OnDestroy {
 
-  private show: Show = null;
+  show: Show = null;
   private eventDate: string = null;
   private audioRecArray: AudioRecording[] = [];
 
@@ -25,15 +25,15 @@ export class ShowComponent implements OnInit, OnDestroy {
   *               use showService to call Archive.org API to get audio recordings for the show on the given eventDate
   *               use showService to return Array of audio recordings
   */
-  ngOnInit(): void {
+  async ngOnInit() {
     //get the 'eventDate' attribute from the routers ParamMap
     this.route.paramMap.subscribe((params : ParamMap) => {
       this.eventDate = params.get('eventDate');
     });
 
-    this.show = this.showService.getShowMatchingDate(this.eventDate);
-    this.showService.doGetSoundboardDataRequest(this.eventDate);
-    this.audioRecArray = this.showService.getAudioRecordingArray();
+    this.show = await this.showService.getShowMatchingDate(this.eventDate);
+    await this.showService.doGetSoundboardDataRequest(this.eventDate);
+    this.audioRecArray = await this.showService.getAudioRecordingArray();
   }
 
   /*
@@ -45,9 +45,8 @@ export class ShowComponent implements OnInit, OnDestroy {
     this.showService.clearAudioRecordingArray();
   }
 
-  getShow() {
-    return this.show;
-  }
+  // TODO: have a loading screen with ~5seconds of time to load all the soundboards
+
 
   getAudioRecArr() {
     return this.audioRecArray;

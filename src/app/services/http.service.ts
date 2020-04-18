@@ -11,40 +11,40 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   /*
-  * description: calls our express API to serve up tour data for the specified year
+  * description: Asynchronously calls our express API to serve up tour data for the specified year
   *              the tour year is passed to the api as a param.
-  * returns :    array of show objects
+  * returns :    Promise with Array of show objects
   */
-  getTourData(year) {
+  async getTourData(year) {
     //keep in mind HttpParams are immutable, each time set() is called
     //a new HttpParam object is created
     let params = new HttpParams();
     params = params.set('tourYear', year);
 
-    return this.http.get('http://localhost:8000/getTourData/', {params});
+    return await this.http.get('http://localhost:8000/getTourData/', {params}).toPromise();
   }
 
   /*
-  * description: calls our express API to serve up all the shows that match the date
-  * returns: Array of show objects who's eventDate === today
+  * description: Asynchronously calls our express API to serve up all the shows that match the date
+  * returns: Promise with Array of show objects who's eventDate === today
   */
-  getShowsMatchingDate(date) {
+  async getShowsMatchingDate(date) {
     let params = new HttpParams();
     params = params.set('dateParam', date);
-    
-    return this.http.get('http://localhost:8000/getShowsMatchingDate/', {params});
+
+    return await this.http.get('http://localhost:8000/getShowsMatchingDate/', {params}).toPromise();
   }
 
   /*
-  * description: calls our express API to return an Object containing the URLs
+  * description: Asynchronously calls our express API to return an Object containing the URLs
   *              for the soundboards/tapes for a given date, if any exist
-  * returns: Array of Objects holding information provided by the Archive.org API
+  * returns: Promise with Array of Objects holding information provided by the Archive.org API
   */
-getSoundboardData(date) {
+async getSoundboardData(date) {
     let params = new HttpParams();
     params = params.set('dateParam', date);
 
-    return this.http.get('http://localhost:8000/getSoundboardData/', {params});
+    return await this.http.get('http://localhost:8000/getSoundboardData/', {params}).toPromise();
   }
 
 }

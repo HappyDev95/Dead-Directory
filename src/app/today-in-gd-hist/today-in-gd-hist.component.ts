@@ -15,8 +15,10 @@ export class TodayInGDHistComponent implements OnInit {
 
   private date: Date = new Date();
   private showArr: Show[] = [];
-  isShowing: boolean = false;
   readonly dateOptions: Object = { year: 'numeric', month: 'numeric', day: 'numeric',  weekday: 'long', };
+  isShowing: boolean = false;
+  isOkayToRoute: boolean = false;
+
 
   //injecting ShowDataService via the constructor
   constructor(private showService: ShowDataService) { }
@@ -25,9 +27,15 @@ export class TodayInGDHistComponent implements OnInit {
   * description:  use showService to get an Array of Show Objects matching date
   *               use showService to set showArr = an array of Show Objects holding show data
   */
-  ngOnInit(): void {
-    this.showService.doGetShowsMatchingDateRequest(this.date);
-    this.showArr = this.showService.getShowArray();
+  async ngOnInit() {
+    await this.showService.doGetShowsMatchingDateRequest(this.date);
+    this.showArr = await this.showService.getShowArray();
+
+    // TODO: do this better... I'm not sure how yet, but look into RouteGuards, or preloading the service
+    //right now we set this flag after the service is guaranteed to have the data which will then
+    //allow our router-outlet to navigate us to the child route when we know the data is set. Without guaranteeing
+    //the serivce has been called from the parent route compoenent to init data errors could occur in the child compnent... so, do this better.
+    this.isOkayToRoute = true;
   }
 
   /*
