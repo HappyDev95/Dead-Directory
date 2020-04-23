@@ -30,13 +30,16 @@
 <div class="audience-recordings-container">
   <ul *ngIf="this.getAudioRecArr().length > 0" class="audio-tapings-list">
     <li *ngFor="let sbdObj of this.getAudioRecArr()">
-      URL: <a href="{{sbdObj.getUrl()}}" target="_blank">{{sbdObj.getUrl()}}</a>
+      <a id="archiveURL" href="{{sbdObj.getUrl()}}" target="_blank">URL: {{sbdObj.getUrl()}}</a>
       <br>
-      Number Of Downloads: {{sbdObj.getDownloads()}}
+      <span *ngIf="sbdObj.getDownloads() > 0">Number Of Downloads: {{sbdObj.getDownloads()}}</span>
+      <span *ngIf="sbdObj.getDownloads() === undefined">Number Of Downloads: N/A</span>
       <br>
-      Average Rating of Tape: {{sbdObj.getAverageRating()}}
+      <span *ngIf="sbdObj.getAverageRating() > 0">Average Rating of Tape: {{sbdObj.getAverageRating()}}</span>
+      <span *ngIf="sbdObj.getAverageRating() === undefined">Average Rating of Tape: N/A</span>
       <br>
-      Number of Tape Reviews: {{sbdObj.getNumberReviews()}}
+      <span *ngIf="sbdObj.getNumberReviews() > 0">Number of Tape Reviews: {{sbdObj.getNumberReviews()}}</span>
+      <span *ngIf="sbdObj.getNumberReviews() === undefined">Number of Tape Reviews: N/A</span>
     </li>
   </ul>
 </div>
