@@ -1,4 +1,4 @@
-import { Show } from './dataModel';
+import { Show } from './show';
 
 describe('Show', () => {
   it('should create an instance', () => {

@@ -8,7 +8,7 @@
   </h1>
 </div>
 
-<div class="poo">
+<div class="show-set-container">
   <ul class="show-details-list">
     <li *ngFor="let set of this.show.getSetListArray(); let i = index">
       <h2>Set {{i+1}}</h2>
@@ -17,19 +17,26 @@
   </ul>
 </div>
 
-<div class="audience-recordings-container">
-  <h1>Show Tapings both audience and soundboards</h1>
+<div class="show-information-container">
+  <h1>Show Tapings</h1>
+  <h4>Both audience and soundboards</h4>
   <h3>Information provided by Archive.org</h3>
 </div>
 
-<ul class="audio-tapings-list">
-  <li *ngFor="let sbdObj of this.getAudioRecArr()">
-    URL: <a href="{{sbdObj.getUrl()}}" target="_blank">{{sbdObj.getUrl()}}</a>
-    <br>
-    Number Of Downloads: {{sbdObj.getDownloads()}}
-    <br>
-    Average Rating of Tape: {{sbdObj.getAverageRating()}}
-    <br>
-    Number of Tape Reviews: {{sbdObj.getNumberReviews()}}
-  </li>
-</ul>
+<div *ngIf="this.getAudioRecArr().length === 0" class="show-information-container">
+  <h2>We couldn't find any soundboards or tapes from Archive.org</h2>
+</div>
+
+<div class="audience-recordings-container">
+  <ul *ngIf="this.getAudioRecArr().length > 0" class="audio-tapings-list">
+    <li *ngFor="let sbdObj of this.getAudioRecArr()">
+      URL: <a href="{{sbdObj.getUrl()}}" target="_blank">{{sbdObj.getUrl()}}</a>
+      <br>
+      Number Of Downloads: {{sbdObj.getDownloads()}}
+      <br>
+      Average Rating of Tape: {{sbdObj.getAverageRating()}}
+      <br>
+      Number of Tape Reviews: {{sbdObj.getNumberReviews()}}
+    </li>
+  </ul>
+</div>

@@ -21,7 +21,7 @@ export class HttpService {
     let params = new HttpParams();
     params = params.set('tourYear', year);
 
-    return await this.http.get('http://localhost:8000/getTourData/', {params}).toPromise();
+    return await this.http.get('http://localhost:8000/api/getTourData/', {params}).toPromise();
   }
 
   /*
@@ -32,7 +32,7 @@ export class HttpService {
     let params = new HttpParams();
     params = params.set('dateParam', date);
 
-    return await this.http.get('http://localhost:8000/getShowsMatchingDate/', {params}).toPromise();
+    return await this.http.get('http://localhost:8000/api/getShowsMatchingDate/', {params}).toPromise();
   }
 
   /*
@@ -44,7 +44,7 @@ async getSoundboardData(date) {
     let params = new HttpParams();
     params = params.set('dateParam', date);
 
-    return await this.http.get('http://localhost:8000/getSoundboardData/', {params}).toPromise();
+    return await this.http.get('http://localhost:8000/api/getSoundboardData/', {params}).toPromise();
   }
 
 }

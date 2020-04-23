@@ -8,14 +8,15 @@ $darkRed: rgb(102, 0, 0);
   background-color: $charcoalBlack;
   border-color: $boneWhite;
   border-style: solid;
-  border-radius: 15px 15px 15px 15px;
+  border-radius: 15px;
   margin: 1% 8% 0 8%;
   color: $darkRed;
   overflow: hidden;
 }
 
-.poo {
+.show-set-container {
   text-align: center;
+  overflow: hidden;
 }
 
 .show-details-list {
@@ -24,54 +25,70 @@ $darkRed: rgb(102, 0, 0);
   font-size: 2em;
   font-weight: bold;
   color: white;
+  display: flex;
 
   li {
     float: left;
     border-color: $boneWhite;
     border-style: solid;
     background-color: $charcoalBlack;
-    border-radius: 20px 20px 20px 20px;
-    padding: 5% 5% 5% 5%;
-    margin:0.5em;
+    border-radius: 20px;
+    padding: 1.5em;
+    margin: 0.5em;
     box-shadow: 0 8px 14px 2px #000000;
   }
 }
 
-.audience-recordings-container {
+@media only screen and (max-width: 1200px) {
+  .show-details-list {
+    display: inline-grid;
+  }
+}
+
+.show-information-container {
+  width: 50%;
   font-family: 'Poor Story', cursive;
   font-size: 1.5em;
   background-color: $charcoalBlack;
   border-color: $boneWhite;
   border-style: solid;
-  border-radius: 15px 15px 15px 15px;
-  margin: 1% 8% 0 8%;
+  border-radius: 15px;
+  margin: 1em;
+  padding: 0 2em 2em 2em;
   color: $darkRed;
   overflow: hidden;
   display: inline-block;
 }
 
+.audience-recordings-container {
+  display: inline-block;
+}
+
 .audio-tapings-list {
   list-style-type: none;
-  font-size: 2em;
   font-weight: bold;
   color: white;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
 
   li {
-    float: left;
     border-color: $boneWhite;
     border-style: solid;
     background-color: $charcoalBlack;
-    border-radius: 20px 20px 20px 20px;
-    padding: 1% 1% 1% 1%;
+    border-radius: 20px;
+    padding: 1%;
     margin:0.5em;
     box-shadow: 0 8px 14px 2px #000000;
+    font-size: 2em;
+    width: 45%;
   }
 }
 
 h1 {
   font-family: 'Poor Story', cursive;
   font-size: 3em;
+  margin: 0em;
   text-align: center;
   color: $boneWhite;
 }
@@ -88,4 +105,13 @@ h3 {
   font-size: 2em;
   text-align: center;
   color: $darkRed;
+  margin: .2em 0 0 0
+}
+
+h4 {
+  font-family: 'Poor Story', cursive;
+  font-size: 1em;
+  text-align: center;
+  color: $darkRed;
+  margin: 0em;
 }
