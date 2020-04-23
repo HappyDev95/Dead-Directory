@@ -34,7 +34,7 @@ export class TodayInGDHistComponent implements OnInit {
     // TODO: do this better... I'm not sure how yet, but look into RouteGuards, or preloading the service
     //right now we set this flag after the service is guaranteed to have the data which will then
     //allow our router-outlet to navigate us to the child route when we know the data is set. Without guaranteeing
-    //the serivce has been called from the parent route compoenent to init data errors could occur in the child compnent... so, do this better.
+    //the serivce has been called from the parent route component to init data errors could occur in the child component... so, do this better.
     this.isOkayToRoute = true;
   }
 
