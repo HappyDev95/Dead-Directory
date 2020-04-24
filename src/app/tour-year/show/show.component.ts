@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { ShowDataService } from './../../services/show-data.service';
@@ -15,9 +15,12 @@ export class ShowComponent implements OnInit, OnDestroy {
   show: Show = null;
   private eventDate: string = null;
   private audioRecArray: AudioRecording[] = [];
+  isLoadScreenActive: boolean;
 
   //injecting ActivatedRoute and ShowDataService via the constructor
-  constructor(private route: ActivatedRoute, private showService: ShowDataService) {}
+  constructor(private route: ActivatedRoute, private showService: ShowDataService) {
+    this.isLoadScreenActive = true;
+  }
 
   /*
   * description:  get the 'eventDate' attribute from the routers ParamMap
@@ -46,7 +49,9 @@ export class ShowComponent implements OnInit, OnDestroy {
   }
 
   // TODO: have a loading screen with ~5seconds of time to load all the soundboards
-
+  ngAfterViewInit() {
+    setTimeout(() => { this.isLoadScreenActive = false }, 2000);
+  }
 
   getAudioRecArr() {
     return this.audioRecArray;

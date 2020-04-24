@@ -21,14 +21,17 @@
   <h1>Show Tapings</h1>
   <h4>Both audience and soundboards</h4>
   <h3>Information provided by Archive.org</h3>
+
+  <div *ngIf="isLoadScreenActive" class="loader">
+  </div>
 </div>
 
-<div *ngIf="this.getAudioRecArr().length === 0" class="show-information-container">
+<div *ngIf="(this.getAudioRecArr().length === 0) && (!isLoadScreenActive)" class="show-information-container">
   <h2>We couldn't find any soundboards or tapes from Archive.org</h2>
 </div>
 
 <div class="audience-recordings-container">
-  <ul *ngIf="this.getAudioRecArr().length > 0" class="audio-tapings-list">
+  <ul *ngIf="(this.getAudioRecArr().length > 0) && (!isLoadScreenActive)" class="audio-tapings-list">
     <li *ngFor="let sbdObj of this.getAudioRecArr()">
       <a id="archiveURL" href="{{sbdObj.getUrl()}}" target="_blank">URL: {{sbdObj.getUrl()}}</a>
       <br>
