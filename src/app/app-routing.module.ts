@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { TodayInGDHistComponent } from './today-in-gd-hist/today-in-gd-hist.component';
 import { ShowComponent } from './tour-year/show/show.component';
+import { ContactUsComponent } from './contact/contact-us.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
     children: [
       { path: ':eventDate', component: ShowComponent }
     ]
-  }
+  },
+  { path: 'ContactUs', component: ContactUsComponent }
 ];
 
 @NgModule({

@@ -1,0 +1,22 @@
+$charcoalBlack: rgb(26, 26, 26);
+$boneWhite: rgb(217, 217, 217);
+$darkRed: rgb(102, 0, 0);
+
+.contact-us-container {
+  font-family: 'Poor Story', cursive;
+  font-size: 1.5em;
+  background-color: $charcoalBlack;
+  border-color: $boneWhite;
+  border-style: solid;
+  border-radius: 15px;
+  margin: 1% 8% 0 8%;
+}
+
+h1 {
+  text-align: center;
+  color: $boneWhite;
+}
+
+h2 {
+  color: $darkRed;
+}

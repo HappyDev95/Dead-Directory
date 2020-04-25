@@ -7,13 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TodayInGDHistComponent } from './today-in-gd-hist/today-in-gd-hist.component';
-import { TourYearModule } from './tour-year/tour-year.module'
+import { TourYearModule } from './tour-year/tour-year.module';
+import { ContactUsComponent } from './contact/contact-us.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TodayInGDHistComponent,
+    ContactUsComponent,
   ],
   imports: [
     BrowserModule,
