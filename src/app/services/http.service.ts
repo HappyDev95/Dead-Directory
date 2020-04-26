@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { environment } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class HttpService {
+
+  //set in the enviornment config file
+  private apiUrl: String = environment.apiPathUrl;
 
   //inject HttpClient via the constructor
   constructor(private http: HttpClient) { }
@@ -21,7 +25,7 @@ export class HttpService {
     let params = new HttpParams();
     params = params.set('tourYear', year);
 
-    return await this.http.get('http://localhost:8000/api/getTourData/', {params}).toPromise();
+    return await this.http.get(`${this.apiUrl}/getTourData/`, {params}).toPromise();
   }
 
   /*
@@ -32,7 +36,7 @@ export class HttpService {
     let params = new HttpParams();
     params = params.set('dateParam', date);
 
-    return await this.http.get('http://localhost:8000/api/getShowsMatchingDate/', {params}).toPromise();
+    return await this.http.get(`${this.apiUrl}/getShowsMatchingDate/`, {params}).toPromise();
   }
 
   /*
@@ -44,7 +48,7 @@ async getSoundboardData(date) {
     let params = new HttpParams();
     params = params.set('dateParam', date);
 
-    return await this.http.get('http://localhost:8000/api/getSoundboardData/', {params}).toPromise();
+    return await this.http.get(`${this.apiUrl}/getSoundboardData/`, {params}).toPromise();
   }
 
 }
