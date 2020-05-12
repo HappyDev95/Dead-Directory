@@ -48,7 +48,6 @@ export class ShowComponent implements OnInit, OnDestroy {
     this.showService.clearAudioRecordingArray();
   }
 
-  // TODO: have a loading screen with ~5seconds of time to load all the soundboards
   ngAfterViewInit() {
     setTimeout(() => { this.isLoadScreenActive = false }, 2000);
   }

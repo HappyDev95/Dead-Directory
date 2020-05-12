@@ -4,7 +4,6 @@ $darkRed: rgb(102, 0, 0);
 
 :host {
   text-align: center;
-  display: inline-block;
 }
 
 .show-container {
@@ -46,4 +45,15 @@ h1 {
       background: darken($boneWhite, 10%);
     }
   }
+}
+
+.loader {
+  width: 10em;
+  height: 10em;
+  border: 16px solid $boneWhite;
+  border-radius: 50%;
+  border-top: 16px solid $darkRed;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  margin: 2em auto;
 }

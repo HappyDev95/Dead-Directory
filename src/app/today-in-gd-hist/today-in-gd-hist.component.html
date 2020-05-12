@@ -1,6 +1,6 @@
 <div *ngIf="!isShowing" class="show-container">
   <h1>{{this.getTodaysDate()}}</h1>
-  <h2>Click on a show to see the setlist and view soundboards from archive.org </h2>
+  <h2>Click on a show to see the setlist and view soundboards from archive.org</h2>
   <ul class="show-list">
     <li *ngFor="let show of getShowArray(); let i = index" routerLink="{{show.getEventDateYYYYMMDD()}}">
       <br>
@@ -12,6 +12,11 @@
       <br>
     </li>
   </ul>
+
+  <div *ngIf="isLoadScreenActive" class="loader">
+  <!-- This is our loader or buffer screen to wait -->
+  </div>
+
 </div>
 
 <router-outlet *ngIf="isOkayToRoute" (activate)="onActivate()" (deactivate)="onDeactivate()"></router-outlet>
