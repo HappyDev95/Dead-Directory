@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { ShowDataService } from './../services/show-data.service';
 import { Show } from './../dataModel/show';
@@ -18,7 +18,7 @@ export class TodayInGDHistComponent implements OnInit {
   readonly dateOptions: Object = { year: 'numeric', month: 'numeric', day: 'numeric',  weekday: 'long', };
   isShowing: boolean = false;
   isOkayToRoute: boolean = false;
-  isLoadScreenActive: boolean
+  isLoadScreenActive: boolean;
 
   //injecting ShowDataService via the constructor
   constructor(private showService: ShowDataService) {
@@ -38,10 +38,7 @@ export class TodayInGDHistComponent implements OnInit {
     //allow our router-outlet to navigate us to the child route when we know the data is set. Without guaranteeing
     //the serivce has been called from the parent route component to init data errors could occur in the child component... so, do this better.
     this.isOkayToRoute = true;
-  }
-
-  ngAfterViewInit() {
-    setTimeout(() => { this.isLoadScreenActive = false }, 7000);
+    this.isLoadScreenActive = false;
   }
 
   /*
