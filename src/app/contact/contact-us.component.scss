@@ -21,3 +21,11 @@ h2 {
   font-size: 2em;
   color: $darkRed;
 }
+
+@media screen and (max-width: 600px) {
+  .contact-us-container {
+    h1 {
+      font-size: 1.2em;
+    }
+  }
+}

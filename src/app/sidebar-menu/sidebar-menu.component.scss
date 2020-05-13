@@ -33,3 +33,9 @@ $darkRed: rgb(102, 0, 0);
     }
   }
 }
+
+@media screen and (max-width: 600px) {
+  .sidebar-menu {
+    width: 15%;
+  }
+}

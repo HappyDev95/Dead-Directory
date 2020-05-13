@@ -40,12 +40,6 @@ $darkRed: rgb(102, 0, 0);
   }
 }
 
-@media only screen and (max-width: 1200px) {
-  .show-details-list {
-    display: inline-grid;
-  }
-}
-
 .show-information-container {
   width: 50%;
   font-family: 'Poor Story', cursive;
@@ -145,4 +139,52 @@ h4 {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .show-details-list {
+    display: inline-grid;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .show-set-container {
+    .show-details-list {
+      li {
+        width: 70%;
+        font-size: 1em;
+      }
+    }
+  }
+
+  .show-information-container {
+    h1 {
+      font-size: 2em;
+    }
+
+    h3 {
+      font-size: .8em;
+    }
+
+    h4 {
+      font-size: 1em;
+    }
+  }
+
+
+  .audience-recordings-container {
+    .audio-tapings-list {
+      padding: 0;
+      li {
+        font-size: 1.3em;
+        width: 100%;
+      }
+    }
+  }
+
 }

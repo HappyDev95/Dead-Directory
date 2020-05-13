@@ -21,22 +21,6 @@ h2 {
   color: $darkRed;
 }
 
-.content-container {
-  display: grid;
-  grid-column-gap: 5%;
-  grid-template-columns: auto auto;
-  padding: 0 10% 0 10%;
-}
-
-.selection-container {
-  padding: 5%;
-
-  .selection-content-container {
-    font-size: 2em;
-    position: absolute;
-  }
-}
-
 .tour-dates-list {
   list-style-type: none;
   font-size: 2em;
@@ -59,6 +43,22 @@ h2 {
       color: $charcoalBlack;
       border-color: $charcoalBlack;
       background: darken($boneWhite, 10%);
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .greeting-container {
+    font-size: 1em;
+  }
+
+  .tour-dates-list {
+    font-size: 1em;
+    padding: 0;
+
+    li {
+      padding: 3.5em;
+      //margin:
     }
   }
 }
