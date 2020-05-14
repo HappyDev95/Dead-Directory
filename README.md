@@ -3,7 +3,9 @@
 ## About
 
 An Angular web application used to display Grateful Dead Tour dates and their corresponding setlist.
-The backend for this application is mean to serve this application the required data.
+The backend for this application is written using ExpressJS. 
+
+Currently, this is hosted serverless through the AWS cloud using S3, Lambda, and API gateway. 
 
 ## Check It Out
 Here's the live version of the website hosted completely serverless through AWS. 
