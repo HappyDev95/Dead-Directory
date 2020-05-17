@@ -1,9 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "WhosRunning": {
+    "Dead Directory": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/WhosRunning",
+            "outputPath": "dist/Dead Directory",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "WhosRunning:build"
+            "browserTarget": "Dead Directory:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "WhosRunning:build:production"
+              "browserTarget": "Dead Directory:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "WhosRunning:build"
+            "browserTarget": "Dead Directory:build"
           }
         },
         "test": {
@@ -114,15 +114,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "WhosRunning:serve"
+            "devServerTarget": "Dead Directory:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "WhosRunning:serve:production"
+              "devServerTarget": "Dead Directory:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "WhosRunning"
+  "defaultProject": "Dead Directory"
 }
