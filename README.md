@@ -2,8 +2,15 @@
 
 ## About
 
-An Angular web application used to display Grateful Dead Tour dates and their corresponding setlist.
-The backend for this application is mean to serve this application the required data.
+An Angular web application used to display Grateful Dead Tour dates and their corresponding setlists. Additional functionality such as Today in Grateful Dead History and the ability to connect users to the soundboards of shows  (found on Archive.org via their API) is present as well.
+
+The backend for this application is written using ExpressJS. 
+
+Currently, this is hosted serverless through the AWS cloud using S3, Lambda, and API gateway. 
+
+## Check It Out
+Here's the live version of the website hosted completely serverless through AWS. 
+http://deaddirectorywebapp.s3-website-us-east-1.amazonaws.com/
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
 
