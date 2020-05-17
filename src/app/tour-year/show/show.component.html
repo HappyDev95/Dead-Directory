@@ -34,17 +34,19 @@
 
 <div class="audience-recordings-container">
   <ul *ngIf="(this.getAudioRecArr().length > 0) && (!isLoadScreenActive)" class="audio-tapings-list">
-    <li *ngFor="let sbdObj of this.getAudioRecArr()">
-      <a id="archiveURL" href="{{sbdObj.getUrl()}}" target="_blank">URL: {{sbdObj.getUrl()}}</a>
-      <br>
-      <span *ngIf="sbdObj.getDownloads() > 0">Number Of Downloads: {{sbdObj.getDownloads()}}</span>
-      <span *ngIf="sbdObj.getDownloads() === undefined">Number Of Downloads: N/A</span>
-      <br>
-      <span *ngIf="sbdObj.getAverageRating() > 0">Average Rating of Tape: {{sbdObj.getAverageRating()}}</span>
-      <span *ngIf="sbdObj.getAverageRating() === undefined">Average Rating of Tape: N/A</span>
-      <br>
-      <span *ngIf="sbdObj.getNumberReviews() > 0">Number of Tape Reviews: {{sbdObj.getNumberReviews()}}</span>
-      <span *ngIf="sbdObj.getNumberReviews() === undefined">Number of Tape Reviews: N/A</span>
-    </li>
+    <a *ngFor="let sbdObj of this.getAudioRecArr()" href="{{sbdObj.getUrl()}}" target="_blank">
+      <li>
+        <span id="archiveURL">URL: {{sbdObj.getUrl()}}</span>
+        <br>
+        <span *ngIf="sbdObj.getDownloads() > 0">Number Of Downloads: {{sbdObj.getDownloads()}}</span>
+        <span *ngIf="sbdObj.getDownloads() === undefined">Number Of Downloads: N/A</span>
+        <br>
+        <span *ngIf="sbdObj.getAverageRating() > 0">Average Rating of Tape: {{sbdObj.getAverageRating()}}</span>
+        <span *ngIf="sbdObj.getAverageRating() === undefined">Average Rating of Tape: N/A</span>
+        <br>
+        <span *ngIf="sbdObj.getNumberReviews() > 0">Number of Tape Reviews: {{sbdObj.getNumberReviews()}}</span>
+        <span *ngIf="sbdObj.getNumberReviews() === undefined">Number of Tape Reviews: N/A</span>
+      </li>
+    </a>
   </ul>
 </div>

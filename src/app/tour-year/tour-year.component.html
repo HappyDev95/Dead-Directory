@@ -14,6 +14,11 @@
       <br>
     </li>
   </ul>
+
+  <div *ngIf="isLoadScreenActive" class="loader">
+  <!-- This is our loader or buffer screen to wait -->
+  </div>
+
 </div>
 
 <!-- router-outlet here is used to display the routes relative to the tour-year component, not the app component -->

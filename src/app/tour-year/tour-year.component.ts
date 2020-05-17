@@ -21,9 +21,12 @@ export class TourYearComponent implements OnInit {
 
   isOkayToRoute: boolean = false;
   isShowing: boolean = false;
+  isLoadScreenActive: boolean;
 
   //injecting ActivatedRoute and ShowDataService via the constructor
-  constructor(private route: ActivatedRoute, private showService: ShowDataService) {}
+  constructor(private route: ActivatedRoute, private showService: ShowDataService) {
+    this.isLoadScreenActive = true;
+  }
 
   /*
   * description:  get the 'year' attribute from the routers ParamMap
@@ -44,6 +47,7 @@ export class TourYearComponent implements OnInit {
     //allow our router-outlet to navigate us to the child route when we know the data is set. Without guaranteeing
     //the serivce has been called from the parent route component to init data errors could occur in the child component... so, do this better.
     this.isOkayToRoute = true;
+    this.isLoadScreenActive = false;
   }
 
   /*
