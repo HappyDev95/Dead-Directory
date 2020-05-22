@@ -1,6 +1,6 @@
-<sidebar-menu *ngIf="!isShowing"></sidebar-menu>
+<sidebar-menu *ngIf="!showRouteActivated && !isLoadScreenActive"></sidebar-menu>
 
-<div *ngIf="!isShowing" class="tourInfo-container">
+<div *ngIf="!showRouteActivated" class="tourInfo-container">
   <h4>{{getTourYear()}}</h4>
   <h2>Click on a show to see the setlist and view soundboards from archive.org </h2>
   <ul class="tour-year-list">

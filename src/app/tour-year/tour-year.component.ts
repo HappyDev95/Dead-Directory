@@ -20,7 +20,7 @@ export class TourYearComponent implements OnInit {
   private showArr: Show[] = [];
 
   isOkayToRoute: boolean = false;
-  isShowing: boolean = false;
+  showRouteActivated: boolean = false;
   isLoadScreenActive: boolean;
 
   //injecting ActivatedRoute and ShowDataService via the constructor
@@ -55,7 +55,7 @@ export class TourYearComponent implements OnInit {
   *              to indicate this. Utilizes router-outlet's (activate) event binding
   */
   onActivate() {
-    this.isShowing = true;
+    this.showRouteActivated = true;
   }
 
   /*
@@ -63,7 +63,7 @@ export class TourYearComponent implements OnInit {
   *              to indicate this. Utilizes router-outlet's (deactiviate) event binding
   */
   onDeactivate() {
-    this.isShowing = false;
+    this.showRouteActivated = false;
   }
 
   getTourYear() {
