@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { OnInit } from '@angular/core';
 
 import { HttpService } from './http.service';
 import{ Show } from './../dataModel/show';
@@ -22,10 +21,10 @@ export class ShowDataService {
   * description: Asynchronously gets the tour information for a given year and sets showArr. The requested
   *              tour year is passed in via the router use httpService to perform a request to API on our behalf
   */
-  async doGetTourYearRequest(year) {
-      var response = await this.httpService.getTourData(year).then( async data => {
+  async doGetTourYearRequest(year: string) {
+      await this.httpService.getTourData(year).then(data => {
         for(var test in data) {
-          await this.setShowData(data[test]);
+          this.setShowData(data[test]);
         }
       });
   }
@@ -34,10 +33,10 @@ export class ShowDataService {
   * description: Asynchronously gets the tour information for a given date and sets showArr.
   *              Use httpService to perform a request to API on our behalf
   */
-  async doGetShowsMatchingDateRequest(date) {
-    var response = await this.httpService.getShowsMatchingDate(date).then(async data => {
+  async doGetShowsMatchingDateRequest(date: string) {
+    await this.httpService.getShowsMatchingDate(date).then(async data => {
       for(var test in data) {
-        await this.setShowData(data[test]);
+        this.setShowData(data[test]);
       }
     });
   }
@@ -46,10 +45,10 @@ export class ShowDataService {
   * description: Asynchronously gets the soundboard/audience tapes for a given date and sets AudioRecordings Array.
   *              Use httpService to perform a request to API on our behalf
   */
-  doGetSoundboardDataRequest(date) {
-    var response = this.httpService.getSoundboardData(date).then(async data => {
+  async doGetSoundboardDataRequest(date: string) {
+    this.httpService.getSoundboardData(date).then(async data => {
       for(var test in data) {
-        await this.setAudioRecordings(data[test]);
+        this.setAudioRecordings(data[test]);
       }
     });
   }
@@ -60,7 +59,7 @@ export class ShowDataService {
   *              to audioRecordingArray, an array which holds all the AudioRecordings
   *              for a given show.
   */
-  setAudioRecordings(audioData) {
+  setAudioRecordings(audioData: Array<any>) {
     var audioRec = new AudioRecording();
     for(let key in audioData) {
       switch(key) {
@@ -81,7 +80,7 @@ export class ShowDataService {
     this.audioRecordingArray.push(audioRec);
   }
 
-  getAudioRecordingArray() {
+  getAudioRecordingArray() : AudioRecording[] {
     return this.audioRecordingArray;
   }
 
@@ -91,7 +90,7 @@ export class ShowDataService {
   *              audioRecordingArray = [] then all references to the array would not be effected.
   */
   clearAudioRecordingArray() {
-    return this.audioRecordingArray.length = 0;
+    this.audioRecordingArray.length = 0;
   }
 
   /*
@@ -99,7 +98,7 @@ export class ShowDataService {
   *              are set on that object add the Show object to the setOfShows Array,
   *              an array which holds Show objects.
   */
-  setShowData(showData) {
+  setShowData(showData: Array<any>) {
     var show = new Show();
     for(let key in showData){
       switch(key) {
@@ -135,7 +134,7 @@ export class ShowDataService {
     this.showArr.push(show);
   }
 
-  getShowArray() {
+  getShowArray() : Show[] {
     return this.showArr;
   }
 
@@ -145,7 +144,7 @@ export class ShowDataService {
   *              event date variable. If Show.eventDate equals the date paramter passed in
   *              then return the Show object that we matched with.
   */
-  getShowMatchingDate(date) {
+  getShowMatchingDate(date: string) : Show {
     if(this.showArr.length < 1) {
       return null;
     }

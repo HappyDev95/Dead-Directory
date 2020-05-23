@@ -13,19 +13,19 @@ export class AudioRecording {
     return `${AudioRecording.ARCHIVE_ORG_LOOKUP_URL}${this.identifier}`;
   }
 
-  public getIdentifier() {
+  public getIdentifier() : string {
     return this.identifier;
   }
 
-  public getDownloads() {
+  public getDownloads() : number {
     return this.downloads;
   }
 
-  public getAverageRating() {
+  public getAverageRating() : number {
     return this.averageRating;
   }
 
-  public getNumberReviews() {
+  public getNumberReviews() : number {
     return this.numberReviews;
   }
 

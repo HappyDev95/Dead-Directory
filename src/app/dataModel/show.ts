@@ -1,36 +1,34 @@
-import { DatePipe } from '@angular/common';
-
 export class Show {
 
   private eventDate: string;
   private venueName: string;
   private cityName: string;
   private cityLocation: string;
-  private setList: any[] = [];
+  private setList: Object[] = [];
 
   constructor() {}
 
-  public getEventDate() {
+  public getEventDate() : string {
     return this.eventDate;
   }
 
-  public getEventDateYYYYMMDD() {
+  public getEventDateYYYYMMDD() : string {
     return new Date(this.eventDate).toISOString().slice(0,10);
   }
 
-  public getVenueName() {
+  public getVenueName() : string {
     return this.venueName;
   }
 
-  public getCityName() {
+  public getCityName() : string {
     return this.cityName;
   }
 
-  public getCityLocation() {
+  public getCityLocation() : string {
     return this.cityLocation;
   }
 
-  public getSetListArray() {
+  public getSetListArray() : Array<Object> {
     return this.setList;
   }
 
@@ -50,7 +48,7 @@ export class Show {
     this.cityLocation = cityLocation;
   }
 
-  public setSetListArray(setListArr: any[]) {
+  public setSetListArray(setListArr: Array<Object>) {
     this.setList = setListArr;
   }
 

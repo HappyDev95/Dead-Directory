@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
-import { SidebarMenuComponent } from './../sidebar-menu/sidebar-menu.component';
 import { ShowDataService } from './../services/show-data.service';
 import { Show } from './../dataModel/show';
 
@@ -40,7 +39,7 @@ export class TourYearComponent implements OnInit {
     });
 
     await this.showService.doGetTourYearRequest(this.tourYear);
-    this.showArr = await this.showService.getShowArray();
+    this.showArr = this.showService.getShowArray();
 
     // TODO: do this better... I'm not sure how yet, but look into RouteGuards, or preloading the service
     //right now we set this flag after the service is guaranteed to have the data which will then
@@ -66,15 +65,15 @@ export class TourYearComponent implements OnInit {
     this.showRouteActivated = false;
   }
 
-  getTourYear() {
+  getTourYear() : string {
     return this.tourYear;
   }
 
-  getShowArray() {
+  getShowArray() : Show[] {
     return this.showArr;
   }
 
-  getShow(index) {
+  getShow(index : number) : Show {
     return this.showArr[index];
   }
 

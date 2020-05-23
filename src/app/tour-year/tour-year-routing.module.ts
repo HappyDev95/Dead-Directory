@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TourYearComponent } from './tour-year.component';
 import { ShowComponent } from './show/show.component';
-import { NotFoundComponent } from './../not-found/not-found.component';
 
 const tourYearRoutes: Routes = [
   {

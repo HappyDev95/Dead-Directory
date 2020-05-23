@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { ShowDataService } from './../../services/show-data.service';
 import { Show } from './../../dataModel/show';
@@ -10,7 +10,7 @@ import { AudioRecording } from './../../dataModel/audio-recording';
   templateUrl: './show.component.html',
   styleUrls: ['./show.component.scss']
 })
-export class ShowComponent implements OnInit, OnDestroy {
+export class ShowComponent implements OnInit, OnDestroy, AfterViewInit {
 
   show: Show = null;
   private eventDate: string = null;
@@ -36,7 +36,7 @@ export class ShowComponent implements OnInit, OnDestroy {
 
     this.show = await this.showService.getShowMatchingDate(this.eventDate);
     await this.showService.doGetSoundboardDataRequest(this.eventDate);
-    this.audioRecArray = await this.showService.getAudioRecordingArray();
+    this.audioRecArray = this.showService.getAudioRecordingArray();
   }
 
   /*
@@ -52,7 +52,7 @@ export class ShowComponent implements OnInit, OnDestroy {
     setTimeout(() => { this.isLoadScreenActive = false }, 2000);
   }
 
-  getAudioRecArr() {
+  getAudioRecArr() : AudioRecording[] {
     return this.audioRecArray;
   }
 

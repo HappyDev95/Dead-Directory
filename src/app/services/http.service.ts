@@ -20,7 +20,7 @@ export class HttpService {
   *              the tour year is passed to the api as a param.
   * returns :    Promise with Array of show objects
   */
-  async getTourData(year) {
+  async getTourData(year: string) : Promise<Object> {
     //keep in mind HttpParams are immutable, each time set() is called
     //a new HttpParam object is created
     let params = new HttpParams();
@@ -37,7 +37,7 @@ export class HttpService {
   * description: Asynchronously calls our express API to serve up all the shows that match the date
   * returns: Promise with Array of show objects who's eventDate === today
   */
-  async getShowsMatchingDate(date) {
+  async getShowsMatchingDate(date: string) : Promise<Object> {
     let params = new HttpParams();
     params = params.set('dateParam', date);
 
@@ -53,7 +53,7 @@ export class HttpService {
   *              for the soundboards/tapes for a given date, if any exist
   * returns: Promise with Array of Objects holding information provided by the Archive.org API
   */
-async getSoundboardData(date) {
+async getSoundboardData(date: string) : Promise<Object> {
     let params = new HttpParams();
     params = params.set('dateParam', date);
 

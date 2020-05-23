@@ -30,8 +30,8 @@ export class TodayInGDHistComponent implements OnInit {
   *               use showService to set showArr = an array of Show Objects holding show data
   */
   async ngOnInit() {
-    await this.showService.doGetShowsMatchingDateRequest(this.date);
-    this.showArr = await this.showService.getShowArray();
+    await this.showService.doGetShowsMatchingDateRequest(this.date.toString());
+    this.showArr = this.showService.getShowArray();
 
     // TODO: do this better... I'm not sure how yet, but look into RouteGuards, or preloading the service
     //right now we set this flag after the service is guaranteed to have the data which will then
@@ -57,12 +57,12 @@ export class TodayInGDHistComponent implements OnInit {
     this.isShowing = false;
   }
 
-  getTodaysDate() {
+  getTodaysDate() : string {
     return this.date.toLocaleDateString("en-US", this.dateOptions);
   }
 
-  getShowArray() {
-    return this.showService.getShowArray();
+  getShowArray() : Show[] {
+    return this.showArr;
   }
 
 }
