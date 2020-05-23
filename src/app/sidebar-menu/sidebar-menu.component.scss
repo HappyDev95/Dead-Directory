@@ -1,6 +1,6 @@
 $charcoalBlack: rgb(26, 26, 26);
 $boneWhite: rgb(217, 217, 217);
-$darkRed: rgb(102, 0, 0);
+$steelyBlue: rgb(27, 97, 176);
 
 .sidebar-menu {
   height: 15%;
@@ -19,7 +19,7 @@ $darkRed: rgb(102, 0, 0);
       padding: 8px 8px 8px 8px;
       font-size: 1em;
       font-weight: bold;
-      color: $boneWhite;
+      color: $steelyBlue;
       border-style: solid;
       border-color: $charcoalBlack;
       background-color: $charcoalBlack;
@@ -29,7 +29,7 @@ $darkRed: rgb(102, 0, 0);
     li:hover {
       color: $charcoalBlack;
       background-color: $boneWhite;
-      border-color: $darkRed;
+      border-color: $steelyBlue;
     }
   }
 }

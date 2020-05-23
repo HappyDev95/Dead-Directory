@@ -1,6 +1,6 @@
 $charcoalBlack: rgb(26, 26, 26);
 $boneWhite: rgb(217, 217, 217);
-$darkRed: rgb(102, 0, 0);
+$steelyBlue: rgb(27, 97, 176);
 
 .show-container {
   font-family: 'Poor Story', cursive;
@@ -10,7 +10,7 @@ $darkRed: rgb(102, 0, 0);
   border-style: solid;
   border-radius: 15px;
   margin: 1% 8% 0 8%;
-  color: $darkRed;
+  color: $steelyBlue;
   overflow: hidden;
 }
 
@@ -50,7 +50,7 @@ $darkRed: rgb(102, 0, 0);
   border-radius: 15px;
   margin: 1em;
   padding: 0 2em 2em 2em;
-  color: $darkRed;
+  color: $steelyBlue;
   overflow: hidden;
   display: inline-block;
 }
@@ -68,7 +68,7 @@ $darkRed: rgb(102, 0, 0);
   flex-wrap: wrap;
 
   a {
-    color: $darkRed;
+    color: $steelyBlue;
     width: 50%;
 
     li {
@@ -107,7 +107,7 @@ h3 {
   font-family: 'Poor Story', cursive;
   font-size: 2em;
   text-align: center;
-  color: $darkRed;
+  color: $steelyBlue;
   margin: .2em 0 0 0
 }
 
@@ -115,7 +115,7 @@ h4 {
   font-family: 'Poor Story', cursive;
   font-size: 1em;
   text-align: center;
-  color: $darkRed;
+  color: $steelyBlue;
   margin: 0em;
 }
 
@@ -124,7 +124,7 @@ h4 {
   height: 10em;
   border: 16px solid $boneWhite;
   border-radius: 50%;
-  border-top: 16px solid $darkRed;
+  border-top: 16px solid $steelyBlue;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
   margin: 2em auto;

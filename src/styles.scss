@@ -5,6 +5,7 @@
 $primary: rgb(111, 0, 255);
 $boneWhite: rgb(217, 217, 217);
 $charcoalBlack: rgb(26, 26, 26);
+$steelyBlue: rgb(27, 97, 176);
 
 html {
   background-color: white;
@@ -23,53 +24,11 @@ body {
   margin: 0 auto;
 }
 
-header {
-  background: black;
-  padding: 1em 0;
-  font-size: 2em;
-}
-
-a {
-    color: white;
-    text-decoration: none;
-}
-
-a.logo{
-  font-weight: bold;
-  padding-left: 1em;
-}
-
-nav {
-  float: right;
-
-  ul {
-    list-style-type: none;
-    margin: 0;
-    display: flex;
-    font-weight: bold;
-
-    li a {
-      padding: 1em;
-      &:hover {
-        background: darken($boneWhite, 10%);
-        color: $charcoalBlack;
-      }
-    }
-  }
-}
-
-h1 {
-  margin-top: 2em;
-}
-
-h2 {
-  text-align: center;
-}
-
 home-component {
   margin: 0 auto;
   width: 100%;
   height: 100%;
+  text-align: center;
 }
 
 tour-year {

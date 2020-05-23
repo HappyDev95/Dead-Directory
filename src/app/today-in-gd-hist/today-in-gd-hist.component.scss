@@ -1,6 +1,6 @@
 $charcoalBlack: rgb(26, 26, 26);
 $boneWhite: rgb(217, 217, 217);
-$darkRed: rgb(102, 0, 0);
+$steelyBlue: rgb(27, 97, 176);
 
 :host {
   text-align: center;
@@ -15,7 +15,7 @@ $darkRed: rgb(102, 0, 0);
   border-style: solid;
   border-radius: 15px 15px 15px 15px;
   margin: 1% 8% 0 8%;
-  color: $darkRed;
+  color: $steelyBlue;
 }
 
 h1 {
@@ -53,7 +53,7 @@ h1 {
   height: 10em;
   border: 16px solid $boneWhite;
   border-radius: 50%;
-  border-top: 16px solid $darkRed;
+  border-top: 16px solid $steelyBlue;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
   margin: 2em auto;

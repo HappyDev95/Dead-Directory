@@ -1,6 +1,6 @@
 $charcoalBlack: rgb(26, 26, 26);
 $boneWhite: rgb(217, 217, 217);
-$darkRed: rgb(102, 0, 0);
+$steelyBlue: rgb(27, 97, 176);
 
 .greeting-container {
   font-family: 'Poor Story', cursive;
@@ -13,12 +13,11 @@ $darkRed: rgb(102, 0, 0);
 }
 
 h1 {
-  text-align: center;
   color: $boneWhite;
 }
 
 h2 {
-  color: $darkRed;
+  color: $steelyBlue;
 }
 
 .tour-dates-list {

@@ -1,6 +1,6 @@
 $charcoalBlack: rgb(26, 26, 26);
 $boneWhite: rgb(217, 217, 217);
-$darkRed: rgb(102, 0, 0);
+$steelyBlue: rgb(27, 97, 176);
 
 .contact-us-container {
   font-family: 'Poor Story', cursive;
@@ -19,7 +19,7 @@ h1 {
 
 h2 {
   font-size: 2em;
-  color: $darkRed;
+  color: $steelyBlue;
 }
 
 @media screen and (max-width: 600px) {
