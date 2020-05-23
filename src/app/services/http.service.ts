@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { environment } from './../../environments/environment';
 
 @Injectable({
@@ -11,8 +12,8 @@ export class HttpService {
   //set in the enviornment config file
   private apiUrl: String = environment.apiPathUrl;
 
-  //inject HttpClient via the constructor
-  constructor(private http: HttpClient) { }
+  //inject HttpClient and Router via the constructor
+  constructor(private http: HttpClient, private router: Router) { }
 
   /*
   * description: Asynchronously calls our express API to serve up tour data for the specified year
@@ -25,7 +26,11 @@ export class HttpService {
     let params = new HttpParams();
     params = params.set('tourYear', year);
 
-    return await this.http.get(`${this.apiUrl}/api/getTourData/`, {params}).toPromise();
+    try {
+      return await this.http.get(`${this.apiUrl}/api/getTourData/`, {params}).toPromise();
+    } catch (err) {
+      this.errorHandler(err);
+    }
   }
 
   /*
@@ -36,7 +41,11 @@ export class HttpService {
     let params = new HttpParams();
     params = params.set('dateParam', date);
 
-    return await this.http.get(`${this.apiUrl}/api/getShowsMatchingDate/`, {params}).toPromise();
+    try {
+      return await this.http.get(`${this.apiUrl}/api/getShowsMatchingDate/`, {params}).toPromise();
+    } catch (err) {
+      this.errorHandler(err);
+    }
   }
 
   /*
@@ -48,7 +57,25 @@ async getSoundboardData(date) {
     let params = new HttpParams();
     params = params.set('dateParam', date);
 
-    return await this.http.get(`${this.apiUrl}/api/getSoundboardData/`, {params}).toPromise();
+    try {
+      return await this.http.get(`${this.apiUrl}/api/getSoundboardData/`, {params}).toPromise();
+    } catch (err) {
+      this.errorHandler(err);
+    }
+  }
+
+  /*
+  * description: Primitive Error Handler to handle the errors returned from making our API calls
+  *              routes to error page if a 404 error is detected.
+  * params:      HttpErrorResponse
+  */
+  errorHandler(error : HttpErrorResponse) {
+    if(error.status === 404) {
+      console.log(error);
+      this.router.navigate([error.status]);
+    } else {
+      console.log('something went wrong! ' + error);
+    }
   }
 
 }
