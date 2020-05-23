@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { TodayInGDHistComponent } from './today-in-gd-hist/today-in-gd-hist.component';
 import { TourYearModule } from './tour-year/tour-year.module';
 import { ContactUsComponent } from './contact/contact-us.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ContactUsComponent } from './contact/contact-us.component';
     HomeComponent,
     TodayInGDHistComponent,
     ContactUsComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
