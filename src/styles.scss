@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Poor+Story&display=swap');
 
 $primary: rgb(111, 0, 255);
@@ -11,6 +12,10 @@ html {
   background-color: white;
   background-image: url("./assets/Images/Dead_Directory_background.png");
   background-size: contain;
+}
+
+header {
+  font-family: 'Fredericka the Great', 'sans-serif';
 }
 
 body {
@@ -33,4 +38,12 @@ home-component {
 
 tour-year {
   display: block;
+}
+
+contact-us {
+  text-align: center;
+}
+
+home-component, tour-year, today-in-gd-hist, show, not-found, contact-us {
+  font-family: 'Poor Story', cursive;
 }

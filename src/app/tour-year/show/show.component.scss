@@ -3,7 +3,6 @@ $boneWhite: rgb(217, 217, 217);
 $steelyBlue: rgb(27, 97, 176);
 
 .show-container {
-  font-family: 'Poor Story', cursive;
   font-size: 1.5em;
   background-color: $charcoalBlack;
   border-color: $boneWhite;
@@ -17,32 +16,34 @@ $steelyBlue: rgb(27, 97, 176);
 .show-set-container {
   text-align: center;
   overflow: hidden;
-}
 
-.show-details-list {
-  font-family: 'Poor Story', cursive;
-  list-style-type: none;
-  font-size: 2em;
-  font-weight: bold;
-  color: white;
-  display: flex;
+  .show-details-list {
+    list-style-type: none;
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    display: flex;
 
-  li {
-    width: 33%;
-    float: left;
-    border-color: $boneWhite;
-    border-style: solid;
-    background-color: $charcoalBlack;
-    border-radius: 20px;
-    padding: 1.5em;
-    margin: 0.5em;
-    box-shadow: 0 8px 14px 2px #000000;
+    li {
+      width: 33%;
+      float: left;
+      border-color: $boneWhite;
+      border-style: solid;
+      background-color: $charcoalBlack;
+      border-radius: 20px;
+      padding: 1.5em;
+      margin: 0.5em;
+      box-shadow: 0 8px 14px 2px #000000;
+
+      p {
+        color: $steelyBlue;
+      }
+    }
   }
 }
 
 .show-information-container {
   width: 50%;
-  font-family: 'Poor Story', cursive;
   font-size: 1.5em;
   background-color: $charcoalBlack;
   border-color: $boneWhite;
@@ -70,6 +71,7 @@ $steelyBlue: rgb(27, 97, 176);
   a {
     color: $steelyBlue;
     width: 50%;
+    text-decoration: none;
 
     li {
       border-color: $boneWhite;
@@ -83,13 +85,12 @@ $steelyBlue: rgb(27, 97, 176);
     }
 
     span {
-      color: $boneWhite;
+      color: $steelyBlue;
     }
   }
 }
 
 h1 {
-  font-family: 'Poor Story', cursive;
   font-size: 3em;
   margin: 0em;
   text-align: center;
@@ -97,14 +98,12 @@ h1 {
 }
 
 h2 {
-  font-family: 'Poor Story', cursive;
   font-size: 2em;
   text-align: center;
   color: $boneWhite;
 }
 
 h3 {
-  font-family: 'Poor Story', cursive;
   font-size: 2em;
   text-align: center;
   color: $steelyBlue;
@@ -112,7 +111,6 @@ h3 {
 }
 
 h4 {
-  font-family: 'Poor Story', cursive;
   font-size: 1em;
   text-align: center;
   color: $steelyBlue;

@@ -4,7 +4,7 @@ import { ShowDataService } from './../services/show-data.service';
 import { Show } from './../dataModel/show';
 
 @Component({
-  selector: 'app-today-in-gd-hist',
+  selector: 'today-in-gd-hist',
   templateUrl: './today-in-gd-hist.component.html',
   styleUrls: ['./today-in-gd-hist.component.scss'],
   //add ShowDataService as a provider means it gets created
