@@ -35,7 +35,7 @@ $steelyBlue: rgb(27, 97, 176);
 }
 
 @media screen and (max-width: 600px) {
-  .sidebar-menu {
-    width: 15%;
+  :host {
+    display: none;
   }
 }
