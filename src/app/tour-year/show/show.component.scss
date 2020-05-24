@@ -153,6 +153,9 @@ h4 {
 
   .show-set-container {
     .show-details-list {
+
+      display: flow-root;
+
       li {
         width: 70%;
         font-size: 1em;
@@ -184,6 +187,7 @@ h4 {
       li {
         #archiveURL {
           font-size: xx-small;
+          word-wrap: break-word;
           color: $boneWhite;
         }
         font-size: 1.3em;
