@@ -155,10 +155,15 @@ h4 {
     .show-details-list {
 
       display: flow-root;
+      padding: 0 0 0 3%;
 
       li {
         width: 70%;
         font-size: 1em;
+
+        p {
+          word-wrap: break-word;
+        }
       }
     }
   }
@@ -185,6 +190,8 @@ h4 {
     .audio-tapings-list {
       padding: 0;
       li {
+        padding: 4px;
+
         #archiveURL {
           font-size: xx-small;
           word-wrap: break-word;
